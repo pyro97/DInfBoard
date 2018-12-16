@@ -21,6 +21,12 @@
 
 	<div id="header_right">
 		<a href="account.html"><img src="img/header/userIcon.png"></a>
+		<%
+		Boolean auth=(Boolean) session.getAttribute("auth");
+		if(auth) {
+			session.getAttribute("username");
+		}
+		%>
 	</div>
 
 </header>
