@@ -22,7 +22,7 @@ header div {
 
 #logo img {
   padding:2% 30% 0% 0%;
-  width: 30%;
+  width: 38%;
 }
 
 #header_central {
@@ -30,20 +30,11 @@ header div {
   float:left;
 }
 
-#header_central li {
-  width: 40%;
-  margin:1%;
-  background-color: #fff;
-  border-color: #000;
-  border-style: solid;
-  border-radius: 10px;
-  list-style: none;
-}
-
-#header_central a {
-  color:#000;
-  font-weight: bold;
+#header_central a,button {
+  color:#fff;
   text-decoration: none;
+  margin:2% 0%;
+  padding:1% 0%;
 }
 
 #header_right {

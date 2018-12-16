@@ -3,6 +3,7 @@
 
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="css/footer.css">
+<script src="js/header_footer.js"></script>
 </head>
 
 <footer>

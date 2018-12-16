@@ -11,14 +11,16 @@
 	</div>
 
 	<div id="header_central">
-		<ul>
-			<li><a href="bacheca.html">Bacheca</a></li>
-			<li><a href="inserisciAnnuncio.html">Inserisci Annuncio</a></li>
-		</ul>
+
+		<form action="BachecaServlet">
+			<button id="bachecaButton" text="Bacheca">Bacheca</button>
+		</form>
+		
+		<button id="inserisciAnnuncioButton"><a href="inserisciAnnuncio.jsp">Inserisci Annuncio</a></button>
 	</div>
 
 	<div id="header_right">
-		<a href="account.html"><img src="img/header/user2.png"></a>
+		<a href="account.html"><img src="img/header/userIcon.png"></a>
 	</div>
 
 </header>
