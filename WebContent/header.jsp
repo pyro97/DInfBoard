@@ -20,10 +20,10 @@
 	</div>
 
 	<div id="header_right">
-		<a href="account.html"><img src="img/header/userIcon.png"></a>
+		<a href="userArea.jsp"><img src="img/header/userIcon.png"></a>
 		<%
-		Boolean auth=(Boolean) session.getAttribute("auth");
-		if(auth) {
+		Boolean authForName=(Boolean) session.getAttribute("auth");
+		if(authForName!=null && authForName) {
 			session.getAttribute("username");
 		}
 		%>

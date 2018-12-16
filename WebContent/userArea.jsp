@@ -16,11 +16,15 @@ if(auth==null || !auth) {
 </head>
 <body>
 
+<%@include file="header.jsp"%>
+
 	<div id="div-userarea">
 	
 		Benvenuto nell'area utente di <%=session.getAttribute("username") %>
 	
 	</div>
+
+<%@include file="footer.jsp"%>
 
 </body>
 </html>

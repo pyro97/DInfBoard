@@ -3,12 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Home Page - DInfBoard</title>
+	<meta charset="UTF-8">
+	<title>Home Page - DInfBoard</title>
+	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
 <%@include file="header.jsp" %>
+
+	<div id="div-home">
+	
+		Home Page della piattaforma DInfBoard
+	
+	</div>
 
 <%@include file="footer.jsp"%>
 

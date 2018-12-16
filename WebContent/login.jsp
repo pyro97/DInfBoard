@@ -5,9 +5,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Login - DInfBoard</title>
+	<link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
+
+<%@include file="header.jsp"%>
 
 	<div id="div-login">
 	
@@ -25,6 +28,8 @@
 	Provvedi subito <a href="registrazione.jsp">Registrati!</a>
 	
 	</div>
+
+<%@include file="footer.jsp"%>
 
 </body>
 
