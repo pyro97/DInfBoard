@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+#div-login {
+  margin:5% 5%;
+  text-align:center;
+  background-color:antiquewhite;
+}
+
+#div-login input {
+  width: 100%;
+}
+
+#div-login input[type=submit] {
+  width: 20%;
+  margin:1%;
+}
