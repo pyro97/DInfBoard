@@ -7,20 +7,22 @@
 
 <header>
 	<div id="logo">
-		<img src="img/header/logo6.png">
+		<a href="index.jsp"><img src="img/header/logo6.png"></a>
 	</div>
 
 	<div id="header_central">
 
 		<form action="BachecaServlet">
-			<button id="bachecaButton" text="Bacheca">Bacheca</button>
+			<button id="bachecaButton">Bacheca</button>
 		</form>
 		
-		<button id="inserisciAnnuncioButton"><a href="inserisciAnnuncio.jsp">Inserisci Annuncio</a></button>
+		<form action="inserisciAnnuncio.jsp">
+			<button id="inserisciAnnuncio">Inserisci Annuncio</button>
+		</form>
 	</div>
 
 	<div id="header_right">
-		<a href="userArea.jsp"><img src="img/header/userIcon.png"></a>
+		<a href="userArea.jsp"><img src="img/header/user4.svg"></a>
 		<%
 		Boolean authForName=(Boolean) session.getAttribute("auth");
 		if(authForName!=null && authForName) {

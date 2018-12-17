@@ -8,7 +8,7 @@ header {
     height:160px;
     width: 100%;
     font-family: Sans-Serif;
-    background-color: #103550;
+    background-color: #005999;
 }
 
 header div {
@@ -30,20 +30,32 @@ header div {
   float:left;
 }
 
-#header_central a,button {
+#header_central button {
   color:#fff;
   text-decoration: none;
   margin:2% 0%;
-  padding:1% 0%;
+  padding:1% 5px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 3px;
+  border-color:#005999;
+  background-color: #005999;
+  color:#fff;
+  transition-duration: 0.4s;
+}
+
+#header_central button:hover {
+  color: #005999;
+  background-color: #fff;
 }
 
 #header_right {
   text-align: right;
   width: 20%;
   float:left;
+  padding:0% 0% 0% 5%;
 }
 
 #header_right img {
-  padding: 5% 10% 0% 0%;
-  width: 30%;
+  width: 35%;
 }
