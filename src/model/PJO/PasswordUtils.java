@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.Random;
 
 import javax.crypto.SecretKeyFactory;
@@ -35,8 +36,8 @@ public class PasswordUtils {
 		Arrays.fill(password, Character.MIN_VALUE); // assegna ad ogni cella dell'array password il valore '\u0000'
 		try {
 			SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1"); //otteniamo istanza dell'algoritmo
-			return skf.generateSecret(spec).getEncoded();								//che fa uso della crittografia 'SHA1'
-		}														//otteniamo infine la sequenza di byte criptata
+			return skf.generateSecret(spec).getEncoded();						//che fa uso della crittografia 'SHA1'
+		}																	//otteniamo infine la sequenza di byte criptata
 		catch(NoSuchAlgorithmException | InvalidKeySpecException e) {
 			throw new AssertionError("Error while hashing a password: " + e.getMessage(), e);
 		}
@@ -44,5 +45,28 @@ public class PasswordUtils {
 			spec.clearPassword();
 		}
 		
+	}
+	
+	public static String generateSecurePassword(String password, String salt) {
+		
+		String returnValue = null;
+		
+		byte[] securePassword = hash(password.toCharArray(),salt.getBytes());
+		
+		returnValue = Base64.getEncoder().encodeToString(securePassword);
+		
+		return returnValue;
+		
+	}
+	
+	public static boolean verifyUserPassword(String providedPassword, String securedPassword, String salt) {
+	
+		boolean returnValue = false;
+		
+		String newSecurePassword = generateSecurePassword(providedPassword,salt);
+		
+		returnValue = newSecurePassword.equals(securedPassword);
+		
+		return returnValue;
 	}
 }

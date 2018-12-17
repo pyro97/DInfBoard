@@ -1,29 +1,10 @@
 package model.DAO;
 import model.PJO.*;
 
-public class AdminDao {
+public interface AdminDao {
 
-	public AdminDao() {
-		
-	}
-	
-	public boolean inserisciAdmin(Admin a) {
-		
-		return true;
-	}
-	
-	public boolean eliminaAdmin(Admin a) {
-		
-		return true;
-	}
-	
-	public boolean eliminaAnnuncio(Annuncio a) {
-		
-		return true;
-	}
-	
-	public boolean sospendiUtente(Studente s) {
-		
-		return true;
-	}
+	boolean inserisciAdmin(Admin a);
+	boolean eliminaAdmin(Admin a);
+	boolean sospendiUtente(Studente s);
+	boolean eliminaAnnuncioAdmin(Annuncio a);
 }

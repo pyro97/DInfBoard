@@ -1,31 +1,11 @@
 package model.DAO;
 import model.PJO.*;
 
-public class AnnuncioDao {
-
-	public boolean inserisciAnnuncio(Annuncio a) {
-		
-		return true;
-	}
+public interface AnnuncioDao {
 	
-	public boolean rimuoviAnnuncioPersistente(Annuncio a) {
-		
-		return true;
-	}
-	
-	public boolean annuncioNonVisibile(Annuncio a) {
-		
-		return true;
-	}
-	
-	public boolean modificaAnnuncio(Annuncio a) {
-		
-		return true;
-	}
-	
-	public boolean eliminaPartecipazione(Studente s,Annuncio a) {
-		
-		return true;
-	}
-
+	boolean inserisciAnnuncio(Annuncio a);
+	boolean rimuoviAnnuncioPersistente(Annuncio a);
+	boolean annuncioNonVisibile(Annuncio a);
+	boolean modificaAnnuncio(Annuncio a);
+	boolean eliminaPartecipazione(Studente s,Annuncio a);
 }
