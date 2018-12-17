@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<title>Registrazione - DInfBoard</title>
 	<link rel="stylesheet" href="css/registrazione.css">
 </head>
 <body>
@@ -16,19 +16,19 @@
 	Benvenuto nella pagina di registrazione alla piattaforma DInfBoard
 		<form action="RegistrazioneServlet">
 		
-			<input type="text">
 			Inserisci Username
-			<input type="text">
+			<input type="text" placeholder="Inserisci.."><br>
 			Inserisci E-mail
-			<input type="text">
+			<input type="text" placeholder="Inserisci.."><br>
 			Inserisci Password
-			<input type="password">
+			<input type="text" placeholder="Inserisci.."><br>
 			Inserisci il tuo nome
-			<input type="text">
+			<input type="text" placeholder="Inserisci.."><br>
 			Inserisci il tuo cognome
-			<input type="text">
+			<input type="text" placeholder="Inserisci.."><br>
 			
-			<input type="submit" text="Registrati">
+			<br><br>
+			<button id="registrazione-button">Registrati</button>
 			
 		</form>
 	
