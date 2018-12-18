@@ -9,6 +9,7 @@ footer img {
   width: 48px;
   height: auto;
   padding : 2%;
+  transition-duration: 0.4s;
 }
 
 footer div {

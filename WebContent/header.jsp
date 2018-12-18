@@ -22,7 +22,7 @@
 	</div>
 
 	<div id="header_right">
-		<a href="userArea.jsp"><img src="img/header/user4.svg"></a>
+		<a href="userArea.jsp"><img src="img/header/user5.png"></a>
 		<%
 		Boolean authForName=(Boolean) session.getAttribute("auth");
 		if(authForName!=null && authForName) {

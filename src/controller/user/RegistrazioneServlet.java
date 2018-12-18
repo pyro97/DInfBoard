@@ -31,6 +31,14 @@ public class RegistrazioneServlet extends HttpServlet {
 		int id = 1;
 		Studente s = new Studente(id,nome,cognome,email,username,password);
 		StudenteDao sdao = new StudenteDaoImplement();
+		boolean result = sdao.registrazione(s);
+		if(result) {
+			request.getSession().setAttribute("username", s.getUsername());
+			response.sendRedirect("success.jsp");
+		}
+		else {
+			response.sendRedirect("error.jsp");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
