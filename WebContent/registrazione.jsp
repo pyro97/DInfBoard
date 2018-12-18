@@ -17,15 +17,15 @@
 		<form action="RegistrazioneServlet">
 		
 			Inserisci Username
-			<input type="text" placeholder="Inserisci.."><br>
+			<input type="text" name="username" placeholder="Inserisci.."><br>
 			Inserisci E-mail
-			<input type="text" placeholder="Inserisci.."><br>
+			<input type="text" name="email" placeholder="Inserisci.."><br>
 			Inserisci Password
-			<input type="text" placeholder="Inserisci.."><br>
+			<input type="password" name="password" placeholder="Inserisci.."><br>
 			Inserisci il tuo nome
-			<input type="text" placeholder="Inserisci.."><br>
+			<input type="text" name ="nome" placeholder="Inserisci.."><br>
 			Inserisci il tuo cognome
-			<input type="text" placeholder="Inserisci.."><br>
+			<input type="text" name="cognome" placeholder="Inserisci.."><br>
 			
 			<br><br>
 			<button id="registrazione-button">Registrati</button>

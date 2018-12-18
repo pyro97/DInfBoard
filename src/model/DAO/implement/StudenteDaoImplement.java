@@ -1,18 +1,16 @@
 package model.DAO.implement;
 
+import model.DAO.StudenteDao;
 import model.PJO.Studente;
 
-public class StudenteDaoImplement {
+public class StudenteDaoImplement implements StudenteDao {
 
 	/**
 	 * Questa classe non � altro che un Database Access Object con il quale gestiamo i dati persistenti nel database
 	 * relativi agli studenti.
 	 */
 	public StudenteDaoImplement() {
-		/**
-		 * Il costruttore effettua la connessione al database. La classe StudenteDao ci permetterà di effettuare
-		 * tutte le operazioni sui dati persistenti relative alle istanze di Studenti.
-		 */
+		
 	}
 	
 	public boolean registrazione(Studente s) {

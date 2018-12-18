@@ -24,6 +24,14 @@ public class Studente {
 		setValutazione(valutazione);
 	}
 	
+	public Studente(int ID,String nome,String cognome,String email,String username,String password) {
+		setID(ID);
+		setNome(nome);
+		setCognome(cognome);
+		setEmail(email);
+		setPassword(password);
+	}
+	
 	public int getID() {
 		return ID;
 	}
