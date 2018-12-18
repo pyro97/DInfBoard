@@ -18,6 +18,7 @@ public class PasswordUtils {
     private static final int ITERATIONS = 10000;
     private static final int KEY_LENGTH = 256;
 
+    /*
 	public static String getSalt(int lenght) {
 		
 		StringBuilder builder = new StringBuilder(lenght);
@@ -28,6 +29,7 @@ public class PasswordUtils {
 		return new String(builder);
 		
 	}
+	*/
 	
 	public static byte[] hash(char[] password,byte[] salt) {
 		
