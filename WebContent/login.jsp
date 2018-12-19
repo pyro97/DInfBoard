@@ -20,7 +20,7 @@
 			Inserisci Username/E-mail
 			<input type="password">
 			Inserisci Password
-			<input type="submit" text="Accedi">
+			<button id="submit">Accedi</button>
 			
 		</form>
 	
