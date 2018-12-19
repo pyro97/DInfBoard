@@ -2,15 +2,33 @@ package model.PJO;
 
 public class Admin {
 
+	private String cognome;
+	private String nome;
 	private String username;
 	private String email;
 	private String password;
 	
-	public Admin(String username,String email,String password) {
+	public Admin(String nome,String cognome,String email,String username,String password) {
 	
 		setUsername(username);
 		setEmail(email);
 		setPassword(password);
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome=nome;
+	}
+	
+	public String getCognome() {
+		return cognome;
+	}
+	
+	public void setCognome(String cognome) {
+		this.cognome=cognome;
 	}
 	
 	public String getUsername() {
