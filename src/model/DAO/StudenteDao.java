@@ -1,6 +1,7 @@
 package model.DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -11,7 +12,7 @@ import model.PJO.Admin;
 import model.PJO.Annuncio;
 import model.PJO.Studente;
 
-public class StudenteDao implements GenericDao<Studente> {
+public class StudenteDao implements GenericDao<Studente,String> {
 
 	private Connection connection;
 	
@@ -40,13 +41,31 @@ public class StudenteDao implements GenericDao<Studente> {
 	}
 
 	@Override
-	public Studente get(int id) {
+	public Studente get(String id) {
 		return null;
 	}
 
 	@Override
 	public boolean add(Studente s) {
-		return false;
+		String sql = "Insert into Studenti(Username,Password,Valutazione,Nome,Cognome,Email,isAdmin,isSospeso,Preferenza)"
+				+ "values(?,?,?,?,?,?,?,?,?)";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+				ps.setString(1, s.getUsername());
+				ps.setString(2, s.getPassword());
+				ps.setInt(3, s.getValutazione());
+				ps.setString(4, s.getNome());
+				ps.setString(5, s.getCognome());
+				ps.setString(6,s.getEmail());
+				ps.setBoolean(7, s.isIsAdmin());
+				ps.setBoolean(8, s.isIsSospeso());
+				ps.setInt(9, s.getPreferenza());
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	public ArrayList<Annuncio> getPartecipati(Studente s) {

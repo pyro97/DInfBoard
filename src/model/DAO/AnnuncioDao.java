@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import model.PJO.Annuncio;
 import model.PJO.Studente;
 
-public class AnnuncioDao implements GenericDao<Annuncio> {
+public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 
 	private Connection connection;
 	
@@ -25,7 +25,7 @@ public class AnnuncioDao implements GenericDao<Annuncio> {
 	}
 
 	@Override
-	public Annuncio get(int id) {
+	public Annuncio get(Integer id) {
 		return null;
 	}
 	

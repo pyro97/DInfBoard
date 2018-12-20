@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import model.PJO.Preferenza;
 
 
-public class PreferezaDao implements GenericDao<Preferenza> {
+public class PreferezaDao implements GenericDao<Preferenza,Integer> {
 
 	private Connection connection;
 	
@@ -16,7 +16,7 @@ public class PreferezaDao implements GenericDao<Preferenza> {
 	}
 
 	@Override
-	public Preferenza get(int id) {
+	public Preferenza get(Integer id) {
 		return null;
 	}
 
