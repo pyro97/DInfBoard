@@ -1,6 +1,8 @@
 package model.DAO.implement;
 
+import model.PJO.PasswordUtils;
 import model.PJO.Studente;
+import model.DAO.StudenteDao;
 
 public class ManagerStudente {
 
@@ -8,19 +10,29 @@ public class ManagerStudente {
 	* Qui si usano i metodi della classe StudenteDao per fare il login, la registrazione etc..
 	*/
 	
-	boolean registrazione(Studente s) {
-		return true;	
+	public static boolean registrazione(Studente s) {
+		if(s.getUsername()==null || s.getNome()==null || s.getEmail()==null || s.getCognome()==null || 
+				s.getPassword()==null) {
+			return false;
+		}
+		else {
+			StudenteDao dao = new StudenteDao();
+			dao.add(s);
+			dao.close();
+			return true;
+		}
 	}
-	boolean login(Studente s) {
+	
+	public static boolean login(Studente s) {
 		return true;
 	}
-	boolean modificaProfilo(Studente s) {
+	public static boolean modificaProfilo(Studente s) {
 		return true;
 	}
-	boolean eliminaProfilo(Studente s) {
+	public static boolean eliminaProfilo(Studente s) {
 		return true;
 	}
-	boolean valutazione(Studente s,int valutazione,int numeroAnnunciOrganizzati) {
+	public static boolean valutazione(Studente s,int valutazione,int numeroAnnunciOrganizzati) {
 		return true;
 	}
 
