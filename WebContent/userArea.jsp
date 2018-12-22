@@ -21,6 +21,13 @@ if(auth==null || !auth) {
 	<div id="div-userarea">
 	
 		Benvenuto nell'area utente di <%=session.getAttribute("username") %>
+		
+		<br>
+		
+		<form action = "LogoutServlet">
+			<button id="logout-button">Logout</button>
+		</form>
+		
 	
 	</div>
 

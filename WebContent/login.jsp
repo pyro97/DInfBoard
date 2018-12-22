@@ -16,9 +16,9 @@
 	
 		<form action="LoginServlet">
 		
-			<input type="text">
+			<input type="text" name="username">
 			Inserisci Username/E-mail
-			<input type="password">
+			<input type="password" name="password">
 			Inserisci Password
 			<button id="submit">Accedi</button>
 			

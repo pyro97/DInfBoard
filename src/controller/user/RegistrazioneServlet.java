@@ -32,12 +32,9 @@ public class RegistrazioneServlet extends HttpServlet {
 		int preferenza = Integer.parseInt(request.getParameter("preferenza"));
 		
 		Studente s = new Studente(nome,cognome,email,username,password,preferenza);
-		
-		password = PasswordUtils.generateSecurePassword(password, "EqdmPh53c9");
-		
 		if(ManagerStudente.registrazione(s)) {
 			request.getSession().setAttribute("auth", true);
-			request.getSession().setAttribute("username", true);
+			request.getSession().setAttribute("username", username);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 			dispatcher.forward(request, response);
 		}

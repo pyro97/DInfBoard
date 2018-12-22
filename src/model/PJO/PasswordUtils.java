@@ -17,6 +17,7 @@ public class PasswordUtils {
 	private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static final int ITERATIONS = 10000;
     private static final int KEY_LENGTH = 256;
+    private static String salt = "EqdmPh53c9";
 
     /*
 	public static String getSalt(int lenght) {
@@ -49,7 +50,7 @@ public class PasswordUtils {
 		
 	}
 	
-	public static String generateSecurePassword(String password, String salt) {
+	public static String generateSecurePassword(String password) {
 		
 		String returnValue = null;
 		
@@ -61,11 +62,11 @@ public class PasswordUtils {
 		
 	}
 	
-	public static boolean verifyUserPassword(String providedPassword, String securedPassword, String salt) {
+	public static boolean verifyUserPassword(String providedPassword, String securedPassword) {
 	
 		boolean returnValue = false;
 		
-		String newSecurePassword = generateSecurePassword(providedPassword,salt);
+		String newSecurePassword = generateSecurePassword(providedPassword);
 		
 		returnValue = newSecurePassword.equals(securedPassword);
 		

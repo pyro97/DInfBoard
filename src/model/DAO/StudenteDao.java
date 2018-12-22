@@ -2,6 +2,7 @@ package model.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -42,7 +43,41 @@ public class StudenteDao implements GenericDao<Studente,String> {
 
 	@Override
 	public Studente get(String id) {
-		return null;
+		
+		String username = "";
+		String password = "";
+		String email= "";
+		String nome= "";
+		String cognome= "";
+		boolean isAdmin = false;
+		boolean isSospeso = false;
+		int preferenza = 0;
+		int valutazione = 0;
+		
+		String sql = "Select * from Studenti where Username = ?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				username = rs.getString("Username");
+				password = rs.getString("Password");
+				email = rs.getString("Email");
+				nome = rs.getString("Nome");
+				cognome = rs.getString("Cognome");
+				isAdmin = rs.getBoolean("isAdmin");
+				isSospeso = rs.getBoolean("isSospeso");
+				valutazione = rs.getInt("Valutazione");
+				preferenza = rs.getInt("Preferenza");
+				
+			}
+			return new Studente(nome,cognome,preferenza,email,username,password,isAdmin,isSospeso,valutazione);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 	@Override
