@@ -11,15 +11,20 @@ public class ManagerStudente {
 	*/
 	
 	public static boolean registrazione(Studente s) {
+		System.out.println(s.getEmail() + " "+ s.getUsername() + " " + s.getPreferenza() + " " + 
+					s.getValutazione() + " ");
 		if(s.getUsername()==null || s.getNome()==null || s.getEmail()==null || s.getCognome()==null || 
 				s.getPassword()==null) {
 			return false;
 		}
 		else {
 			StudenteDao dao = new StudenteDao();
-			dao.add(s);
-			dao.close();
-			return true;
+			if(dao.add(s)) {
+				dao.close();
+				return true;
+			}
+			else 
+				return false;
 		}
 	}
 	

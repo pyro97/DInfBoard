@@ -29,15 +29,15 @@ public class RegistrazioneServlet extends HttpServlet {
 		String cognome = request.getParameter("cognome");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
+		int preferenza = Integer.parseInt(request.getParameter("preferenza"));
 		
-		Studente s = new Studente(nome,cognome,email,username,password);
+		Studente s = new Studente(nome,cognome,email,username,password,preferenza);
 		
 		password = PasswordUtils.generateSecurePassword(password, "EqdmPh53c9");
 		
 		if(ManagerStudente.registrazione(s)) {
 			request.getSession().setAttribute("auth", true);
 			request.getSession().setAttribute("username", true);
-			response.sendRedirect("success.jsp");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 			dispatcher.forward(request, response);
 		}

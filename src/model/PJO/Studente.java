@@ -24,12 +24,13 @@ public class Studente {
 		setValutazione(valutazione);
 	}
 	
-	public Studente(String nome,String cognome,String email,String username,String password) {
+	public Studente(String nome,String cognome,String email,String username,String password,int preferenza) {
 		setNome(nome);
 		setCognome(cognome);
 		setEmail(email);
 		setUsername(username);
 		setPassword(password);
+		setPreferenza(preferenza);
 	}
 	
 	public String getNome() {

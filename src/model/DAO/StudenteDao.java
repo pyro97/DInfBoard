@@ -51,15 +51,16 @@ public class StudenteDao implements GenericDao<Studente,String> {
 				+ "values(?,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
-				ps.setString(1, s.getUsername());
-				ps.setString(2, s.getPassword());
-				ps.setInt(3, s.getValutazione());
-				ps.setString(4, s.getNome());
-				ps.setString(5, s.getCognome());
-				ps.setString(6,s.getEmail());
-				ps.setBoolean(7, s.isIsAdmin());
-				ps.setBoolean(8, s.isIsSospeso());
-				ps.setInt(9, s.getPreferenza());
+			ps.setString(1, s.getUsername());
+			ps.setString(2, s.getPassword());
+			ps.setInt(3, s.getValutazione());
+			ps.setString(4, s.getNome());
+			ps.setString(5, s.getCognome());
+			ps.setString(6,s.getEmail());
+			ps.setBoolean(7, s.isIsAdmin());
+			ps.setBoolean(8, s.isIsSospeso());
+			ps.setInt(9, s.getPreferenza());
+			ps.execute();
 			return true;
 		}
 		catch(Exception e) {

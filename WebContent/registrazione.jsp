@@ -26,6 +26,8 @@
 			<input type="text" name ="nome" placeholder="Inserisci.."><br>
 			Inserisci il tuo cognome
 			<input type="text" name="cognome" placeholder="Inserisci.."><br>
+			Inserisci preferenza ( Inserire '0' per andare avanti)
+			<input type="text" name="preferenza" placeholder="Inserisci.."><br>
 			
 			<br><br>
 			<button id="registrazione-button">Registrati</button>
