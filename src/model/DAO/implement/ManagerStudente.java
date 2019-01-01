@@ -32,8 +32,6 @@ public class ManagerStudente {
 		
 		StudenteDao dao = new StudenteDao();
 		
-		System.out.println("Sono qui");
-		
 		Studente s = dao.get(username);
 		dao.close();
 		if(s==null)

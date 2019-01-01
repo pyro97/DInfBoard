@@ -14,12 +14,12 @@
 	<div id="div-registrazione">
 	
 	Benvenuto nella pagina di registrazione alla piattaforma DInfBoard
-		<form action="RegistrazioneServlet">
+		<form action="RegistrazioneServlet" method=post>
 		
 			Inserisci Username
 			<input type="text" name="username" placeholder="Inserisci.."><br>
 			Inserisci E-mail
-			<input type="text" name="email" placeholder="Inserisci.."><br>
+			<input type="email" name="email" placeholder="Inserisci.."><br>
 			Inserisci Password
 			<input type="password" name="password" placeholder="Inserisci.."><br>
 			Inserisci il tuo nome

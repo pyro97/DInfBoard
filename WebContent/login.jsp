@@ -14,10 +14,10 @@
 
 	<div id="div-login">
 	
-		<form action="LoginServlet">
+		<form action="LoginServlet" method=get>
 		
 			<input type="text" name="username">
-			Inserisci Username/E-mail
+			Inserisci Username
 			<input type="password" name="password">
 			Inserisci Password
 			<button id="submit">Accedi</button>
