@@ -22,19 +22,7 @@ public class Annuncio {
 		setIsVisible(isVisible);
 		setPreferenza(preferenza);
 	}
-	
-	public Annuncio(String titolo,String descrizione,String PathImmagine,int partecipanti,
-			String usernameOrganizzatore,boolean isVisible,String preferenza) {
-		this.ID = 0;
-		setTitolo(titolo);
-		setDescrizione(descrizione);
-		setPathImmagine(PathImmagine);
-		setPartecipanti(partecipanti);
-		setUsernameOrganizzatore(usernameOrganizzatore);
-		setIsVisible(isVisible);
-		setPreferenza(preferenza);
-	}
-	
+		
 	public String getPreferenza() {
 		return preferenza;
 	}

@@ -19,8 +19,8 @@ CREATE TABLE Studenti (
 CREATE TABLE Annunci (
     ID int PRIMARY KEY AUTO_INCREMENT,
     Titolo varchar(25) NOT NULL,
-    Descrizione varchar(25) NOT NULL,
-    Immagine varchar(25),
+    Descrizione varchar(555) NOT NULL,
+    Immagine varchar(555),
     Partecipanti int NOT NULL,
     Preferenza int NOT NULL,
     isVisible boolean NOT NULL DEFAULT TRUE,

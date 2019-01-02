@@ -5,5 +5,3 @@ Insert into Preferenze(ID_Preferenza,Nome_Preferenza) values(3,"Programmazione")
 Insert into Preferenze(ID_Preferenza,Nome_Preferenza) values(4,"CyberSecurity");
 Insert into Preferenze(ID_Preferenza,Nome_Preferenza) values(5,"Linux/Open Software");
 Insert into Preferenze(ID_Preferenza,Nome_Preferenza) values(6,"Gruppo di Studio");
-
-Insert into Studenti values("antonio","password1",null,"Antonio","Citarella","antoniojjcitarella@gmail.com",true,null,6);

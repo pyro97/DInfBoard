@@ -5,8 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,9 +33,43 @@ public class InserisciAnnuncioServlet extends HttpServlet {
 		String descrizione = request.getParameter("descrizione");
 		Part filePart = request.getPart("immagine"); 
 		String preferenza = request.getParameter("preferenza");
+		int id=0;
+
+	    /*Utilizzo l'oggetto bacheca inserito nel contesto per ottenere l'id da attribuire al nuovo annuncio da 
+	     * inserire all'interno della bacheca DInfBoard
+	     */
+	    
+	    ServletContext ctx = getServletContext();
+	    ArrayList<Annuncio> bacheca = (ArrayList<Annuncio>) ctx.getAttribute("bacheca");
+		if(bacheca==null) {
+			bacheca = ManagerAnnuncio.ottieniBacheca();
+			if(bacheca==null)
+				response.sendRedirect("error.jsp");
+			else {
+				ctx.setAttribute("bacheca", bacheca);
+				if(bacheca.size()==0)
+					id=1;
+				else
+					id=bacheca.get(bacheca.size()-1).getID()+1; //prendo l'id dell'ultimo annuncio in bacheca e ci aggiungo 1
+			}
+		}
+		else {
+			if(bacheca.size()==0)
+				id=1;
+			else
+				id=bacheca.get(bacheca.size()-1).getID()+1; 
+		}
+		
+		/*
+		 * Una volta ottenuto l'id creo il nuovo oggetto annuncio e lo inserisco all'interno della bacheca tramite 
+		 * il metodo inserisciAnnuncio(a)
+		 */
+		
 		
 	    InputStream fileContent = filePart.getInputStream();
-	    File outputFile = new File("/home/antonio/eclipse-workspace/DInfBoard/WebContent/img/annunci/annuncio");
+	    
+	    String path="/home/antonio/eclipse-workspace/DInfBoard/WebContent/img/annunci/"+id + ".png";
+	    File outputFile = new File(path);
 	    outputFile.createNewFile();
 	    FileOutputStream out = new FileOutputStream(outputFile,false);
 	    int bt = fileContent.read();
@@ -41,8 +77,15 @@ public class InserisciAnnuncioServlet extends HttpServlet {
 	    	out.write(bt);
 	    	bt = fileContent.read();
 	    }
+	    
 	    String username = (String) request.getSession().getAttribute("username");
-		Annuncio a = new Annuncio(titolo,descrizione,"img/annunci/annuncio",0,username,true,preferenza);
+	    
+	    String path_per_annuncio = "img/annunci/"+id + ".png";
+	    
+		Annuncio a = new Annuncio(id,titolo,descrizione,path_per_annuncio,0,username,true,preferenza);
+		bacheca.add(a);
+		ctx.setAttribute("bacheca", bacheca);
+		
 		boolean flag = ManagerAnnuncio.inserisciAnnuncio(a);
 		if(flag) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");

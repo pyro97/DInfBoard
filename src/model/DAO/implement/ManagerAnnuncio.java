@@ -1,5 +1,7 @@
 package model.DAO.implement;
 
+import java.util.ArrayList;
+
 import model.DAO.AnnuncioDao;
 import model.PJO.Annuncio;
 import model.PJO.Studente;
@@ -15,6 +17,14 @@ public class ManagerAnnuncio {
 		else
 			return false;
 	}
+	
+	public static ArrayList<Annuncio> ottieniBacheca() {
+		AnnuncioDao dao = new AnnuncioDao();
+		ArrayList<Annuncio> bacheca = dao.getAll();
+		dao.close();
+		return bacheca;
+	}
+	
 	public static boolean rimuoviAnnuncioPersistente(Annuncio a) {
 		return true;
 	}
