@@ -39,7 +39,10 @@ public class PreferenzaDao implements GenericDao<Preferenza,Integer> {
 			Statement s = connection.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			while(rs.next()) {
-				elenco.add(new Preferenza(rs.getInt("ID_Preferenza"),rs.getString("Nome_Preferenza")));
+				int id = rs.getInt("ID_Preferenza");
+				String nome = rs.getString("Nome_Preferenza");
+				Preferenza p = new Preferenza(id,nome);
+				elenco.add(p);
 			}
 			return elenco;
 		}

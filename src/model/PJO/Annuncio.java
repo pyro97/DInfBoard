@@ -7,20 +7,46 @@ public class Annuncio {
 	private String descrizione;
 	private String PathImmagine;
 	private int partecipanti;
-	private int IDOrganizzatore;
+	private String usernameOrganizzatore;
 	private boolean isVisible;
+	private String preferenza;
 	
 	public Annuncio(int ID,String titolo,String descrizione,String PathImmagine,int partecipanti,
-			int ID_Organizzatore,boolean isVisible) {
+			String usernameOrganizzatore,boolean isVisible,String preferenza) {
 		setID(ID);
 		setTitolo(titolo);
 		setDescrizione(descrizione);
 		setPathImmagine(PathImmagine);
 		setPartecipanti(partecipanti);
-		setIDOrganizzatore(ID_Organizzatore);
+		setUsernameOrganizzatore(usernameOrganizzatore);
 		setIsVisible(isVisible);
+		setPreferenza(preferenza);
 	}
 	
+	public Annuncio(String titolo,String descrizione,String PathImmagine,int partecipanti,
+			String usernameOrganizzatore,boolean isVisible,String preferenza) {
+		this.ID = 0;
+		setTitolo(titolo);
+		setDescrizione(descrizione);
+		setPathImmagine(PathImmagine);
+		setPartecipanti(partecipanti);
+		setUsernameOrganizzatore(usernameOrganizzatore);
+		setIsVisible(isVisible);
+		setPreferenza(preferenza);
+	}
+	
+	public String getPreferenza() {
+		return preferenza;
+	}
+
+	public void setPreferenza(String preferenza) {
+		this.preferenza = preferenza;
+	}
+
+	public void setVisible(boolean isVisible) {
+		this.isVisible = isVisible;
+	}
+
 	public void setIsVisible(boolean isVisible) {
 		this.isVisible=isVisible;
 	}
@@ -69,12 +95,12 @@ public class Annuncio {
 		this.partecipanti = partecipanti;
 	}
 
-	public int getIDOrganizzatore() {
-		return IDOrganizzatore;
+	public String getUsernameOrganizzatore() {
+		return usernameOrganizzatore;
 	}
 
-	public void setIDOrganizzatore(int iD_Organizzatore) {
-		IDOrganizzatore = iD_Organizzatore;
+	public void setUsernameOrganizzatore(String usernameOrganizzatore) {
+		this.usernameOrganizzatore = usernameOrganizzatore;
 	}
 	
 	

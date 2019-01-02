@@ -1,23 +1,30 @@
 package model.DAO.implement;
 
+import model.DAO.AnnuncioDao;
 import model.PJO.Annuncio;
 import model.PJO.Studente;
 
 public class ManagerAnnuncio {
 
-	boolean inserisciAnnuncio(Annuncio a) {
+	public static boolean inserisciAnnuncio(Annuncio a) {
+		AnnuncioDao dao = new AnnuncioDao();
+		boolean flag = dao.add(a);
+		dao.close();
+		if(flag)
+			return true;
+		else
+			return false;
+	}
+	public static boolean rimuoviAnnuncioPersistente(Annuncio a) {
 		return true;
 	}
-	boolean rimuoviAnnuncioPersistente(Annuncio a) {
+	public static boolean annuncioNonVisibile(Annuncio a) {
 		return true;
 	}
-	boolean annuncioNonVisibile(Annuncio a) {
+	public static boolean modificaAnnuncio(Annuncio a) {
 		return true;
 	}
-	boolean modificaAnnuncio(Annuncio a) {
-		return true;
-	}
-	boolean eliminaPartecipazione(Studente s,Annuncio a) {
+	public static boolean eliminaPartecipazione(Studente s,Annuncio a) {
 		return true;
 	}
 }

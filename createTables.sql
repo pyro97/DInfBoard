@@ -17,12 +17,13 @@ CREATE TABLE Studenti (
 );
 
 CREATE TABLE Annunci (
-    ID int PRIMARY KEY,
+    ID int PRIMARY KEY AUTO_INCREMENT,
     Titolo varchar(25) NOT NULL,
     Descrizione varchar(25) NOT NULL,
     Immagine varchar(25),
     Partecipanti int NOT NULL,
     Preferenza int NOT NULL,
+    isVisible boolean NOT NULL DEFAULT TRUE,
     FOREIGN KEY (Preferenza) REFERENCES Preferenze(ID_Preferenza)
 );
 
