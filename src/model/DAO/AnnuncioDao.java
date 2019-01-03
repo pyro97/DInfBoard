@@ -150,6 +150,42 @@ public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 	public ArrayList<Studente> getOrganizzatore(Annuncio a) {
 		return null;
 	}
+	
+	public boolean addPartecipante(Studente s,Annuncio a) {
+		
+		String sql = "insert into Partecipazione values(?,?)";
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, s.getUsername());
+			ps.setInt(2, a.getID());
+			ps.execute();
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
+	
+	public boolean removePartecipazione(Studente s,Annuncio a) {
+		
+		String sql = "delete from Partecipazione where Username_Studente=? and ID_Annuncio=?";
+		
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1, s.getUsername());
+			ps.setInt(2, a.getID());
+			ps.execute();
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+	}
 
 	@Override
 	public boolean close() {

@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Annuncio - DInfBoard</title>
 <link rel="stylesheet" href="css/annuncio.css">
+<title>Annuncio - DInfBoard</title>
 </head>
 <body>
 
@@ -32,6 +32,8 @@ dao.close();
 		<h2>Numero Partecipanti</h2> <%=a.getPartecipanti()%> <br>
 		<h2>Categoria</h2> <%=a.getPreferenza() %>
 		<h2>Organizzatore</h2> <a href="user.jsp?username=<%=a.getUsernameOrganizzatore() %>"><%=a.getUsernameOrganizzatore()%></a>
+		
+		<a href="PartecipazioneServlet?ID_Annuncio=<%=a.getID()%>"><button>Partecipa</button></a>
 		
 	</div>
 

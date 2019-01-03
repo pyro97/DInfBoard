@@ -35,6 +35,21 @@ public class ManagerAnnuncio {
 		return true;
 	}
 	public static boolean eliminaPartecipazione(Studente s,Annuncio a) {
-		return true;
+		
+		AnnuncioDao dao = new AnnuncioDao();
+		boolean flag = dao.removePartecipazione(s, a);
+		if(flag)
+			return true;
+		else
+			return false;
+	}
+	public static boolean aggiungiPartecipazione(Studente s,Annuncio a) {
+		
+		AnnuncioDao dao = new AnnuncioDao();
+		boolean flag = dao.addPartecipante(s, a);
+		if(flag)
+			return true;
+		else
+			return false;
 	}
 }
