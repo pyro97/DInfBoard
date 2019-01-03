@@ -26,7 +26,8 @@
 		<%
 		Boolean authForName=(Boolean) session.getAttribute("auth");
 		if(authForName!=null && authForName) {
-			session.getAttribute("username");
+			String username = (String) session.getAttribute("username");
+			%> Ciao <%=username %> <%
 		}
 		%>
 	</div>

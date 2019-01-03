@@ -77,43 +77,21 @@ public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 	public ArrayList<Annuncio> getAll() {
 		
 		ArrayList<Annuncio> elenco = new ArrayList<Annuncio>();
-		String sql = "Select * from Annunci";
-		String sql_Preferenza = "Select * from Preferenze where ID_Preferenza=?";
-		String sql_Organizzatore = "Select * from Organizzazione where ID_Annuncio=?";
-		
+		String sql = "select * from (Organizzazione join Annunci on ID_Annuncio=ID) join Preferenze on ID_Preferenza=Preferenza";
 		try {
 			Statement s = connection.createStatement();
 			ResultSet rs = s.executeQuery(sql);
 			while(rs.next()) {
 				
-				//Ottengo l'id della categoria di preferenza in cui l'annuncio è stato inserito
-				
-				PreparedStatement ps = connection.prepareStatement(sql_Preferenza);
-				ps.setInt(1, rs.getInt("Preferenza"));
-				ResultSet rs_Preferenza = ps.executeQuery();
-				String preferenza = "";
-				while(rs_Preferenza.next()) 
-					preferenza = rs_Preferenza.getString("Nome_Preferenza");
-				
-				//Ottento i dati dell'annuncio
-				
-				int id = rs.getInt("ID");
+				String username = rs.getString("Username_Studente");
+				int ID = rs.getInt("ID");
 				String titolo = rs.getString("Titolo");
 				String descrizione = rs.getString("Descrizione");
 				String path = rs.getString("Immagine");
 				int partecipanti = rs.getInt("Partecipanti");
+				String preferenza = rs.getString("Nome_Preferenza");
 				boolean isVisible = rs.getBoolean("isVisible");
-				
-				//Ottengo l'username dell'organizzatore dell'annuncio
-				
-				PreparedStatement psOrganizzazione = connection.prepareStatement(sql_Organizzatore);
-				psOrganizzazione.setInt(1, id);
-				ResultSet rsOrganizzazione = psOrganizzazione.executeQuery();	
-				String username = "";
-				while(rsOrganizzazione.next()) 
-					username = rsOrganizzazione.getString("Username_Studente");				
-				
-				Annuncio a = new Annuncio(id,titolo,descrizione,path,partecipanti,username,isVisible,preferenza);
+				Annuncio a = new Annuncio(ID,titolo,descrizione,path,partecipanti,username,isVisible,preferenza);
 				elenco.add(a);
 			}
 			return elenco;
@@ -126,7 +104,43 @@ public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 
 	@Override
 	public Annuncio get(Integer id) {
-		return null;
+		
+		String sql = "select * from (Organizzazione join Annunci on ID_Annuncio=ID) join Preferenze on ID_Preferenza=Preferenza where ID=?";
+		Annuncio a = null;
+		try {
+			
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				String username = rs.getString("Username_Studente");
+				int ID = rs.getInt("ID");
+				String titolo = rs.getString("Titolo");
+				String descrizione = rs.getString("Descrizione");
+				String path = rs.getString("Immagine");
+				int partecipanti = rs.getInt("Partecipanti");
+				String preferenza = rs.getString("Nome_Preferenza");
+				boolean isVisible = rs.getBoolean("isVisible");
+				a = new Annuncio(ID,titolo,descrizione,path,partecipanti,username,isVisible,preferenza);
+			}
+			return a;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public boolean remove(Annuncio a) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean update(Annuncio a) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	public ArrayList<Studente> getPartecipanti(Annuncio a) {

@@ -104,6 +104,18 @@ public class StudenteDao implements GenericDao<Studente,String> {
 		}
 	}
 	
+	@Override
+	public boolean remove(Studente a) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean update(Studente a) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 	public ArrayList<Annuncio> getPartecipati(Studente s) {
 		return null;
 	}
