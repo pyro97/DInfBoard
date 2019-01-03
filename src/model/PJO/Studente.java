@@ -2,9 +2,9 @@ package model.PJO;
 
 public class Studente {
 
-	private int ID;
 	private String nome;
 	private String cognome;
+	private String username;
 	private int preferenza;
 	private String email;
 	private String password;
@@ -12,24 +12,27 @@ public class Studente {
 	private boolean IsSospeso;
 	private int Valutazione;
 	
-	public Studente(int ID,String nome,String cognome,int preferenza,String email,String password,boolean isAdmin,boolean isSospeso,int valutazione) {
-		setID(ID);
+	public Studente(String nome,String cognome,int preferenza,String email,String username,String password,boolean isAdmin,boolean isSospeso,int valutazione) {
 		setNome(nome);
 		setCognome(cognome);
 		setPreferenza(preferenza);
 		setEmail(email);
+		setUsername(username);
 		setPassword(password);
 		setIsAdmin(isAdmin);
 		setIsSospeso(isSospeso);
 		setValutazione(valutazione);
 	}
 	
-	public int getID() {
-		return ID;
+	public Studente(String nome,String cognome,String email,String username,String password,int preferenza) {
+		setNome(nome);
+		setCognome(cognome);
+		setEmail(email);
+		setUsername(username);
+		setPassword(password);
+		setPreferenza(preferenza);
 	}
-	public void setID(int iD) {
-		ID = iD;
-	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -39,6 +42,15 @@ public class Studente {
 	public String getCognome() {
 		return cognome;
 	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
