@@ -16,16 +16,18 @@
 	
 		<form action="LoginServlet">
 		
-			<input type="text">
+			<input type="text" name="username">
 			Inserisci Username/E-mail
-			<input type="password">
+			<input type="password" name="password">
 			Inserisci Password
-			<input type="submit" text="Accedi">
+			<button id="submit">Accedi</button>
 			
 		</form>
 	
 	Non sei ancora registrato?
-	Provvedi subito <a href="registrazione.jsp">Registrati!</a>
+	Provvedi subito <a href="registrazione.jsp">Registrati!</a> </br>
+		Hai dimenticato la password? <a href="recuperaPassword.jsp"> Clicca qui</a>
+	
 	
 	</div>
 

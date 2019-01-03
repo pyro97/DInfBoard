@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.PJO.Studente"%>
 
 <%
 Boolean auth = (Boolean) session.getAttribute("auth");
+Studente s=(Studente) session.getAttribute("studente");
+
 if(auth==null || !auth) {
 	response.sendRedirect("login.jsp");
 }
@@ -21,6 +23,13 @@ if(auth==null || !auth) {
 	<div id="div-userarea">
 	
 		Benvenuto nell'area utente di <%=session.getAttribute("username") %>
+		
+		<br>
+		
+		<form action = "LogoutServlet">
+			<button id="logout-button">Logout</button>
+		</form>
+		
 	
 	</div>
 
