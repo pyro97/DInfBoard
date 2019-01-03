@@ -1,3 +1,18 @@
-#bachecaDiv img {
-	width:200px;
+
+#bachecaDiv {
+	margin:3% 3%;
+	font-family: Sans-Serif;
+	background-color: #005999;
+	color:#fff;
+	text-align: center;
+	padding:1% 1%;
+}
+
+#bachecaDiv .class_annunci {
+	padding:2% 2%;
+	text-align: center;
+}
+
+#bachecaDiv .class_annunci img {
+	width:20%;
 }

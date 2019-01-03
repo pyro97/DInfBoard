@@ -31,8 +31,9 @@ else {
 	for(int i=0;i<bacheca.size();i++) {
 		
 		%> <div class="class_annunci">
-		<%=bacheca.get(i).getTitolo() %> -- <%=bacheca.get(i).getDescrizione() %> -- <img src="<%=bacheca.get(i).getPathImmagine()%>">
-		<a href="annuncio.jsp?ID=<%=bacheca.get(i).getID()%>">Vai all'annuncio</a>
+				<%=bacheca.get(i).getTitolo() %> -- <%=bacheca.get(i).getDescrizione() %> <br> 
+				<img src="<%=bacheca.get(i).getPathImmagine()%>"> <br> 
+				<a href="annuncio.jsp?ID=<%=bacheca.get(i).getID()%>">Vai all'annuncio</a>
 			</div>
 			
 			<%
