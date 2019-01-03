@@ -10,7 +10,7 @@ import model.PJO.Studente;
 
 public class ManagerAdmin {
 
-	boolean inserisciAdmin(Studente a) {
+	public static boolean inserisciAdmin(Studente a) {
 		
 			AdminDao dao = new AdminDao();
 			if(dao.add(a)) {
@@ -21,11 +21,11 @@ public class ManagerAdmin {
 				return false;
 		
 	}
-	boolean eliminaAdmin(Studente a) {
+	public static boolean eliminaAdmin(String a) {
 		
 		
 			AdminDao dao = new AdminDao();
-			if(dao.remove(a.getUsername())) {
+			if(dao.remove(a)) {
 				dao.close();
 				return true;
 			}
@@ -34,21 +34,26 @@ public class ManagerAdmin {
 		
 		
 	}
-	boolean sospendiUtente(Studente a) {
+	public static boolean sospendiUtente(String a) {
 	
 			AdminDao dao = new AdminDao();
-			a.setIsSospeso(true);
-			if(dao.update(a)) {
-				dao.close();
-				return true;
-			}
-			else 
-				return false;
+			StudenteDao sdao=new StudenteDao();
+			Studente s=sdao.get(a);
+			if(s!=null) {
+				s.setIsSospeso(true);
+				if(sdao.update(s)) {
+					sdao.close();
+					return true;
+				}
+				else 
+					return false;
+			}else return false;
+		
 		
 	}
-	boolean eliminaAnnuncioAdmin(Annuncio a) {
+	public static boolean eliminaAnnuncioAdmin(int id) {
 		AnnuncioDao dao = new AnnuncioDao();
-		if(dao.remove(a.getID())) {
+		if(dao.remove(id)) {
 			dao.close();
 			return true;
 		}

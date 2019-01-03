@@ -7,7 +7,7 @@ import model.PJO.Preferenza;
 
 public class ManagerPreferenza {
 	
-	boolean inserisciPreferenza(Preferenza a) {
+	public static boolean inserisciPreferenza(Preferenza a) {
 		
 		PreferezaDao dao = new PreferezaDao();
 		if(dao.add(a)) {
@@ -18,7 +18,7 @@ public class ManagerPreferenza {
 			return false;
 	
 }
-boolean rimuoviPreferenzaPersistente(Preferenza a) {
+	public static boolean rimuoviPreferenzaPersistente(Preferenza a) {
 	
 		PreferezaDao dao = new PreferezaDao();
 		if(dao.remove(a.getID())) {
@@ -30,7 +30,7 @@ boolean rimuoviPreferenzaPersistente(Preferenza a) {
 	
 }
 
-boolean modificaAnnuncio(Preferenza a) {
+	public static boolean modificaAnnuncio(Preferenza a) {
 	
 	PreferezaDao dao = new PreferezaDao();
 		if(dao.update(a)) {

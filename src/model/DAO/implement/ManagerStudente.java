@@ -51,16 +51,19 @@ public class ManagerStudente {
 		else 
 			return false;
 	}
-	public static boolean eliminaProfilo(Studente s) {
+	public static boolean eliminaProfilo(String s) {
 		
 			
 			StudenteDao dao = new StudenteDao();
-			if(dao.remove(s.getUsername())) {
-				dao.close();
-				return true;
-			}
-			else 
-				return false;
+			
+				if(dao.remove(s)) {
+					dao.close();
+					return true;
+				}
+				else 
+					return false;
+			
+			
 		
 	}
 	public static boolean valutazione(Studente s,int valutazione,int numeroAnnunciOrganizzati) {
@@ -70,6 +73,12 @@ public class ManagerStudente {
 		
 		
 		return true;
+	}
+	
+	public static Studente recuperaPassword(String user) {
+		StudenteDao dao = new StudenteDao();
+		Studente s=dao.get(user);
+		return s;
 	}
 
 }

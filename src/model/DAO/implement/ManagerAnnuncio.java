@@ -10,7 +10,7 @@ import model.PJO.Studente;
 
 public class ManagerAnnuncio {
 
-	boolean inserisciAnnuncio(Annuncio a) {
+	public static boolean inserisciAnnuncio(Annuncio a) {
 	
 			AnnuncioDao dao = new AnnuncioDao();
 			a.setIsVisible(true);
@@ -22,10 +22,10 @@ public class ManagerAnnuncio {
 				return false;
 		
 	}
-	boolean rimuoviAnnuncioPersistente(Annuncio a) {
+	public static boolean rimuoviAnnuncioPersistente(int id) {
 		
 			AnnuncioDao dao = new AnnuncioDao();
-			if(dao.remove(a.getID())) {
+			if(dao.remove(id) ){
 				dao.close();
 				return true;
 			}
@@ -33,10 +33,27 @@ public class ManagerAnnuncio {
 				return false;
 		
 	}
-	boolean annuncioNonVisibile(Annuncio a) {
+	public static boolean annuncioNonVisibile(int id) {
 		
 			AnnuncioDao dao = new AnnuncioDao();
-			a.setIsVisible(false);
+			Annuncio a= dao.get(id);
+			if(a==null) {
+				return false;
+			}else {
+				a.setIsVisible(false);
+				if(dao.update(a)) {
+					dao.close();
+					return true;
+				}
+				else 
+					return false;
+			}
+			
+		
+	}
+	public static boolean modificaAnnuncio(Annuncio a) {
+		
+			AnnuncioDao dao = new AnnuncioDao();
 			if(dao.update(a)) {
 				dao.close();
 				return true;
@@ -44,20 +61,9 @@ public class ManagerAnnuncio {
 			else 
 				return false;
 		
-	}
-	boolean modificaAnnuncio(Annuncio a) {
-		
-			AnnuncioDao dao = new AnnuncioDao();
-			if(dao.update(a)) {
-				dao.close();
-				return true;
-			}
-			else 
-				return false;
-		
 		
 	}
-	boolean eliminaPartecipazione(Studente s,Annuncio a) {
+	public static boolean eliminaPartecipazione(Studente s,Annuncio a) {
 		AnnuncioDao dao = new AnnuncioDao();
 		StudenteDao sdao = new StudenteDao();
 		
