@@ -63,7 +63,7 @@ public class PreferenzaDao implements GenericDao<Preferenza,Integer> {
 	}
 	
 	@Override
-	public boolean remove(Preferenza a) {
+	public boolean remove(Integer id) {
 		// TODO Auto-generated method stub
 		return false;
 	}

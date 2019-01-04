@@ -132,12 +132,12 @@ public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 	}
 	
 	@Override
-	public boolean remove(Annuncio a) {
+	public boolean remove(Integer id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+	
 	public boolean update(Annuncio a) {
 		// TODO Auto-generated method stub
 		return false;
