@@ -26,6 +26,9 @@
 	
 	Non sei ancora registrato?
 	Provvedi subito <a href="registrazione.jsp">Registrati!</a>
+	<br>
+	<br>
+	<a href="forgottedPassword.jsp">Hai dimenticato la password?</a>
 	
 	</div>
 
