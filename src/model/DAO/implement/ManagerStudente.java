@@ -11,7 +11,11 @@ public class ManagerStudente {
 	*/
 	
 	public static boolean registrazione(Studente s) {
-		
+		if(s.getUsername()==null || s.getNome()==null || s.getEmail()==null || s.getCognome()==null || 
+				s.getPassword()==null) {
+			return false;
+		}
+		else {
 			String passwordCriptata = PasswordUtils.generateSecurePassword(s.getPassword());
 			s.setPassword(passwordCriptata);
 			StudenteDao dao = new StudenteDao();
@@ -21,13 +25,12 @@ public class ManagerStudente {
 			}
 			else 
 				return false;
+		}
 	}
 	
 	public static Studente login(String username,String password) {
 		
 		StudenteDao dao = new StudenteDao();
-		
-		System.out.println("Sono qui");
 		
 		Studente s = dao.get(username);
 		dao.close();
@@ -44,41 +47,20 @@ public class ManagerStudente {
 	
 	public static boolean modificaProfilo(Studente s) {
 		StudenteDao dao = new StudenteDao();
-		if(dao.update(s)) {
-			dao.close();
-			return true;
-		}
-		else 
-			return false;
+		if(dao.update(s))	return true;
+		else	return false;
+		
 	}
-	public static boolean eliminaProfilo(String s) {
-		
-			
-			StudenteDao dao = new StudenteDao();
-			
-				if(dao.remove(s)) {
-					dao.close();
-					return true;
-				}
-				else 
-					return false;
-			
-			
-		
+	public static boolean eliminaProfilo(Studente s) {
+		StudenteDao dao = new StudenteDao();
+		if(dao.remove(s.getUsername()))	return true;
+		else	return false;
 	}
 	public static boolean valutazione(Studente s,int valutazione,int numeroAnnunciOrganizzati) {
+		s.setValutazione(valutazione);
 		StudenteDao dao = new StudenteDao();
-	
-
-		
-		
-		return true;
-	}
-	
-	public static Studente recuperaPassword(String user) {
-		StudenteDao dao = new StudenteDao();
-		Studente s=dao.get(user);
-		return s;
+		if(dao.update(s))	return true;
+		else	return false;
 	}
 
 }
