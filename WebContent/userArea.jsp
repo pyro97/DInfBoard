@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="model.PJO.Studente"%>
 
-<%
-Boolean auth = (Boolean) session.getAttribute("auth");
-Studente s=(Studente) session.getAttribute("studente");
-
-if(auth==null || !auth) {
-	response.sendRedirect("login.jsp");
-}
-%>    
+    
 
 <!DOCTYPE html>
 <html>
@@ -19,6 +12,15 @@ if(auth==null || !auth) {
 <body>
 
 <%@include file="header.jsp"%>
+<%
+
+if(auth==null || !auth || utente==null ) {
+	response.sendRedirect("login.jsp");
+}else{
+	if(utente.isIsAdmin())		response.sendRedirect("login.jsp");
+
+}
+%>   
 
 	<div id="div-userarea">
 	

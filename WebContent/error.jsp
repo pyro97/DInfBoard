@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Registrazione Effettuata - DInfBoard</title>
+<title>Errore</title>
 </head>
 <body>
 
 <%@include file="header.jsp" %>
 
-SUCCESS
+ERRORE
 
 <%@include file="footer.jsp" %>
 
