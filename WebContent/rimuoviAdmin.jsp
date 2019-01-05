@@ -28,10 +28,10 @@ if(auth==null || !auth || utente==null ) {
   <div class="left" style="background-color:#ddd;">
     <h2>Area Admin</h2>  
     <ul id="myMenu">
-      <li><a href="#">Inserisci Admin</a></li>
-      <li><a href="#">Rimuovi Admin</a></li>
+      <li><a href="inserireAdmin.jsp">Inserisci Admin</a></li>
+      <li><a href="rimuoviadmin.jsp">Rimuovi Admin</a></li>
       <li><a href="sospendiUtente.jsp">Sospendi Utente</a></li>
-      <li><a href="#">Aggiorna Preferenze</a></li>
+      <li><a href="gestionePreferenze.jsp">Aggiorna Preferenze</a></li>
       <li><a href="LogoutServlet">Logout</a></li>
     </ul>
   </div>
