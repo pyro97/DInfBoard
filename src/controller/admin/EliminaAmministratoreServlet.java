@@ -24,7 +24,7 @@ public class EliminaAmministratoreServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("usernameAdmin");
 		if(ManagerAdmin.eliminaAdmin(username)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("adminArea.jsp");
 			dispatcher.forward(request, response);
 		}else {
 			response.sendRedirect("error.jsp");

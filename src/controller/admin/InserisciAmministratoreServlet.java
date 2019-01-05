@@ -12,35 +12,24 @@ import model.DAO.implement.ManagerAdmin;
 import model.DAO.implement.ManagerStudente;
 import model.PJO.Studente;
 
-/**
- * Servlet implementation class InserisciAmministratoreServlet
- */
 @WebServlet("/InserisciAmministratoreServlet")
 public class InserisciAmministratoreServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public InserisciAmministratoreServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
-		int preferenza = Integer.parseInt(request.getParameter("preferenza"));
 		
-		Studente admin = new Studente(nome,cognome,email,username,password,preferenza);	
+		Studente admin = new Studente(nome,cognome,0,email,username,password,true,false,0);	
 		if(ManagerAdmin.inserisciAdmin(admin)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("adminArea.jsp");
 			dispatcher.forward(request, response);
 		}
 		else {
@@ -48,11 +37,7 @@ public class InserisciAmministratoreServlet extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
