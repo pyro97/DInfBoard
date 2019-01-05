@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+#userDiv {
+  margin:2% 2%;
+  padding:2% 2%;
+  background-color: #005999;
+  color:#fff;
+  text-align: center;
+}
