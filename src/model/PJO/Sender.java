@@ -19,7 +19,7 @@ public class Sender {
 		String username="assistenza-dinfboard@outlook.com";
 		String password="meek-0688-fesb";
 		Properties prop=new Properties();
-		prop.put("mail.smtp.host", "smtp-mail.outlook.com");
+		prop.put("mail.smtp.host", "smtp.outlook.com");
 		prop.put("mail.smtp.port", "587");
 		prop.put("mail.smtp.auth","true");
 		prop.put("mail.smtp.starttls.enable", "true");

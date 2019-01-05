@@ -4,6 +4,7 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -43,13 +44,12 @@ public class StudenteDao implements GenericDao<Studente,String> {
 		boolean isSospeso = false;
 		int preferenza = 0;
 		int valutazione = 0;
-		ArrayList<Studente> studenti=new ArrayList<>();
-		boolean valore=false;
-		String sql = "Select * from Studenti where isAdmin = ?";
+		ArrayList<Studente> studenti=new ArrayList<Studente>();
+		String sql = "Select * from Studenti";
 		try {
-			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setBoolean(7,valore);
-			ResultSet rs = ps.executeQuery();
+			
+			Statement s = connection.createStatement();
+			ResultSet rs = s.executeQuery(sql);
 			while(rs.next()) {
 				username = rs.getString("Username");
 				password = rs.getString("Password");
@@ -138,7 +138,7 @@ public class StudenteDao implements GenericDao<Studente,String> {
 	public boolean remove(String username) {
 		int result=0;
 		
-		String sql = "delete * from Studenti where Username = ?";
+		String sql = "delete from Studenti where Username = ?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, username);

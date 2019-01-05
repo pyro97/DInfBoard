@@ -41,18 +41,17 @@ public class EmailSenderServlet extends HttpServlet {
 			String subject="Password Recovery";
 			String message="Hai ricevuto questo messaggio perchè hai effettuato una richiesta per recupero password\n"
 					+ "clicca su questo link per andare alla pagina per cambiare password\n"
-					+ "http://localhost:8080/SoundDiscovery/recuperoPassword.jsp?ID="+uniqueID;
+					+ "http://localhost:8080/DInfBoard/recuperoPassword.jsp?ID="+uniqueID;
 			try {
 				sender.sendPlainTextEmail(email, subject, message);
 				dao.close();
+				RequestDispatcher dispatcher=request.getRequestDispatcher("success.jsp");
+				dispatcher.forward(request, response);
 			}
 			catch(Exception e) {
-				request.getSession().setAttribute("badEmail", true);
-				response.sendRedirect("forgottedPassword.jsp");
+				e.printStackTrace();
+				response.sendRedirect("error.jsp");
 			}
-			request.getSession().setAttribute("ID_recupero_Pass",uniqueID);
-			RequestDispatcher dispatcher=request.getRequestDispatcher("success.jsp");
-			dispatcher.forward(request, response);
 		}
 		else {
 			dao.close();

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/generic-style.css">
 <link rel="stylesheet" href="css/forgottedPassword.css">
-<script src="script/jquery.js"></script>
+<script src="js/jquery.js"></script>
 <title>Password Dimenticata - SoundDiscovery</title>
 </head>
 <body>
