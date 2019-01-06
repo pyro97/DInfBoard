@@ -21,7 +21,7 @@ public class ValutazioneServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
   {
 
-    String usernameDaV = request.getParameter("utenteDaValutare");
+    String usernameDaV = (String) request.getSession().getAttribute("utenteDaValutare");
     int val = Integer.parseInt(request.getParameter("valutazione"));
 
     StudenteDao dao=new StudenteDao();

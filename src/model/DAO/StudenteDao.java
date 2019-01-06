@@ -168,8 +168,8 @@ public class StudenteDao implements GenericDao<Studente,String> {
 	public boolean update(Studente s) {
 		
 		String getPreferenza = "select * from Preferenze where Nome_Preferenza=?";
-		String sql = "UPDATE Studenti SET nome=?, cognome=?, preferenza=?,"
-				+ " email=?, username=?, password=?, isAdmin=?, isSospeso=?, valutazione=? WHERE Username=?";
+		String sql = "UPDATE Studenti SET Nome=?, Cognome=?, Preferenza=?,"
+				+ " Email=?, Username=?, Password=?, isAdmin=?, isSospeso=?, Valutazione=? WHERE Username=?";
 		try {
 			
 			int preferenza = 0;

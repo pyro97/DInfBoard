@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.DAO.AnnuncioDao;
 import model.PJO.Annuncio;
+import model.PJO.Sender;
+import model.PJO.Studente;
 import model.DAO.implement.*;
 
 @WebServlet("/ArchiviaAnnuncioServlet")
@@ -28,6 +30,19 @@ public class ArchiviaAnnuncioServlet extends HttpServlet {
 		AnnuncioDao dao = new AnnuncioDao();
 		Annuncio a = dao.get(id);
 		ManagerAnnuncio.annuncioNonVisibile(a);
+		
+		ArrayList<Studente> elenco = dao.getPartecipanti(a);
+		Sender sender = new Sender();
+		String subject = "Corso iniziato !";
+		String message = "Stai ricevendo questa mail perchè il corso " + a.getTitolo() + " è appena cominciato. Lo staff ti augura buon lavoro !";
+		try {
+			for(int i=0;i<elenco.size();i++) {
+				sender.sendPlainTextEmail(elenco.get(i).getEmail(), subject, message);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		ServletContext ctx = getServletContext();
 		
