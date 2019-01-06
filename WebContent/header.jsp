@@ -20,6 +20,13 @@ Studente utente= (Studente) session.getAttribute("utente");
 			<button id="bachecaButton">Bacheca</button>
 		</form>
 		
+		
+		<form id="ricerca" action="RicercaAnnuncioServlet" style="display:inline;" method="get">
+		<input id="searchBox" name="ricerca" type="text"/>
+		<input id="searchButton" value="Cerca" type="submit"/>
+		</form>
+		
+		
 		<form action="inserisciAnnuncio.jsp">
 			<button id="inserisciAnnuncio">Inserisci Annuncio</button>
 		</form>
