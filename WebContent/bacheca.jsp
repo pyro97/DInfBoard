@@ -30,13 +30,15 @@ else if(bacheca.size()==0) {
 else {
 	for(int i=0;i<bacheca.size();i++) {
 		
+		if(bacheca.get(i).getIsVisible()) {
+			
 		%> <div class="class_annunci">
 				<%=bacheca.get(i).getTitolo() %> -- <%=bacheca.get(i).getDescrizione() %> <br> 
 				<img src="<%=bacheca.get(i).getPathImmagine()%>"> <br> 
 				<a href="annuncio.jsp?ID=<%=bacheca.get(i).getID()%>">Vai all'annuncio</a>
 			</div>
 			
-			<%
+			<% }
 		
 	}
 }

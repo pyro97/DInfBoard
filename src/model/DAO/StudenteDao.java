@@ -240,7 +240,7 @@ public class StudenteDao implements GenericDao<Studente,String> {
 	public ArrayList<Annuncio> getOrganizzati(Studente s) {
 		
 		ArrayList<Annuncio> elenco = new ArrayList<Annuncio>();
-		String sql = "select * from ((Studenti join Partecipazione on Username_Studente=Username) "
+		String sql = "select * from ((Studenti join Organizzazione on Username_Studente=Username) "
 				+ "join Annunci on ID_Annuncio=ID) "
 				+ "join Preferenze on ID_Preferenza=Annunci.Preferenza where Username=?";
 		try {

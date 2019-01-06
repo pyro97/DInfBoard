@@ -62,11 +62,11 @@ if(auth==null || !auth || utente==null ) {
 						%> <h3>(Archiviato)</h3> <%
 					}
 					else {
-						%> <a href="">Archivia Annuncio</a> <%
+						%> <a href="ArchiviaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Archivia Annuncio</a> <%
 					}
 					
 					%>
-					 <a href="">Elimina Annuncio</a>
+					 <a href="EliminaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Elimina Annuncio</a>
 										
 					</div> <%
 			}
