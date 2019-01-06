@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		RequestDispatcher dispatcher;
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
@@ -34,7 +34,11 @@ public class LoginServlet extends HttpServlet {
 		else {
 			request.getSession().setAttribute("auth", true);
 			request.getSession().setAttribute("username", username);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			request.getSession().setAttribute("utente", s);
+			if(s.isIsAdmin()) 
+				 dispatcher = request.getRequestDispatcher("adminArea.jsp");
+			else 	dispatcher = request.getRequestDispatcher("userArea.jsp");
+
 			dispatcher.forward(request, response);
 		}
 	}

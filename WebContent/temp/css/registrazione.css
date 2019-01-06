@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+#div-registrazione {
+  font-family:Sans-Serif;
+  font-size:80%;
+  background-color:#005999;
+  color:#fff;
+  margin:2%;
+  text-align:center;
+  padding:1%;
+}
+
+#div-registrazione form {
+  font-family:Sans-Serif;
+  font-size:70%;
+}
+
+#div-registrazione input {
+  margin:1%;
+}

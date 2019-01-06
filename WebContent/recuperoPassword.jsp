@@ -8,13 +8,12 @@
 <title>Recupero Password - SoundDiscovery</title>
 <link rel="stylesheet" href="css/generic-style.css">
 <link rel="stylesheet" href="css/recuperoPassword.css">
-<script src="js/jquery.js"></script>
+<script src="script/jquery.js"></script>
 </head>
 <body>
 
 <%@include file="header.jsp" %>
 <%
-Boolean auth=(Boolean) session.getAttribute("auth");
 if(auth!=null && auth) {
 	response.sendRedirect("userArea.jsp");
 }
@@ -22,7 +21,16 @@ if(auth!=null && auth) {
 
 <%
 String unique=request.getParameter("ID");
-if(unique==null) {
+if(unique!=null) {
+	session.setAttribute("ID", unique);
+}
+else {
+	unique=(String) session.getAttribute("ID");
+}
+String Id_recupero_pass = (String) session.getAttribute("ID_recupero_Pass");
+boolean flag = Id_recupero_pass.equals(unique);
+
+if(!flag) {
 	response.sendRedirect("error.jsp");
 }
 
@@ -31,8 +39,6 @@ if(unique==null) {
 <div id="recupero-box">
 
 	<form id="changePasswordForm" action="ChangePasswordServlet" method="post">
-	
-	<div id="input-box">Inserisci username dell'account da recuperare : <input type="text" id="username" name="username" placeholder="Inserisci username.."></div>
 	
 	<div id="input-box">Inserisci nuova password : <input type="password" name="password1" id="password1" placeholder="Inserisci Password"></div><br>
 	
@@ -52,27 +58,18 @@ if(flag2!=null && flag2) {
 	%> <h2>Hai inserito delle password che non corrispondono.Riprova.</h2> <% 
 }
 session.removeAttribute("missmatch");
-
-Boolean flag3 =(Boolean) session.getAttribute("badUsername");
-if(flag3!=null && flag3) {
-	%> <h2>Hai inserito una username non presente nei nostri sistemi.Riprova.</h2> <% 
-}
-session.removeAttribute("badUsername");
 %>
 
 <script>
 $(document).ready( function() {
 	$("#check").click( function() {
 		
-		var username=$("#username").val();
 		var password1=$("#password1").val();
 		var password2=$("#password2").val();
-		if(!password1 || !password2 || !username) {
+		if(!password1 || !password2) {
 			$("#output").html("Hai lasciato dei campi vuoti");
-			console.log("Invece sono qui");
 		}
 		else {
-			console.log("Sono qui");
 			$("#changePasswordForm").submit();
 		}
 		

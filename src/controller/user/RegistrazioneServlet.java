@@ -35,6 +35,7 @@ public class RegistrazioneServlet extends HttpServlet {
 		if(ManagerStudente.registrazione(s)) {
 			request.getSession().setAttribute("auth", true);
 			request.getSession().setAttribute("username", username);
+			request.getSession().setAttribute("utente", s);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 			dispatcher.forward(request, response);
 		}

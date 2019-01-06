@@ -26,13 +26,39 @@ public class ManagerAnnuncio {
 	}
 	
 	public static boolean rimuoviAnnuncioPersistente(Annuncio a) {
-		return true;
+		
+		AnnuncioDao dao = new AnnuncioDao();
+		if(dao.remove(a.getID()) ){
+			dao.close();
+			return true;
+		}
+		else 
+			return false;
 	}
 	public static boolean annuncioNonVisibile(Annuncio a) {
-		return true;
+		AnnuncioDao dao = new AnnuncioDao();
+		if(a==null) {
+			return false;
+		}else {
+			a.setIsVisible(false);
+			if(dao.update(a)) {
+				dao.close();
+				return true;
+			}
+			else 
+				return false;
+		}
 	}
+	
 	public static boolean modificaAnnuncio(Annuncio a) {
-		return true;
+		
+		AnnuncioDao dao = new AnnuncioDao();
+		if(dao.update(a)) {
+			dao.close();
+			return true;
+		}
+		else 
+			return false;
 	}
 	public static boolean eliminaPartecipazione(Studente s,Annuncio a) {
 		

@@ -133,14 +133,46 @@ public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 	
 	@Override
 	public boolean remove(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+		int result=0;
+		
+		String sql = "delete * from Annunci where ID = ?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, id);
+			result = ps.executeUpdate();
+			if(result!=0)
+				return true;
+			else return false;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	
 	public boolean update(Annuncio a) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "UPDATE Annunci SET ID=?, Titolo=? ,Descrizione=? ,Immagine=? ,Partecipanti=? "
+				+ ",ID_Organizzatore=?, isVisible=? WHERE ID=?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, a.getID());
+			ps.setString(2, a.getTitolo());
+			ps.setString(3, a.getDescrizione());
+			ps.setString(4, a.getPathImmagine());
+			ps.setInt(5, a.getPartecipanti());
+			ps.setString(6, a.getUsernameOrganizzatore());
+			ps.setBoolean(7, a.getIsVisible());
+			ps.setInt(8, a.getID());
+
+			
+			ps.execute();
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	public ArrayList<Studente> getPartecipanti(Annuncio a) {

@@ -1,0 +1,183 @@
+@charset "UTF-8";
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Create a column layout with Flexbox */
+.row {
+  padding-bottom:20%;
+  padding-top:5%;
+}
+
+/* Left column (menu) */
+.left {
+	float:left;
+	
+  padding: 15px 0;
+  margin-left:5%;
+  margin-right:10%;
+}
+
+.left h2 {
+	
+  padding-left: 8px;
+}
+
+
+/* Right column (page content) */
+.right {
+	margin-left:30%;
+			color:white;
+	  padding: 15px;
+  margin-right:20%;
+  padding-bottom:15%;
+}
+
+.right h3{
+	
+	float:left;
+	width:40%;
+	margin-right:5%;	
+	padding:2%;	
+}
+.right p{
+	padding:2%;
+}
+
+/* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myMenu li a {
+  backgrxound-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+}
+
+#myMenu li a:hover {
+  background-color: #007ad3;
+}
+.titolo{
+	font-size:36px;
+	text-align:center;
+	margin-bottom:10%;
+}
+
+
+#div-banna {
+  font-family:Sans-Serif;
+  background-color:#005999;
+  color:#fff;
+}
+
+#div-banna p{
+	text-align:left;
+	margin-right:10%;
+	  display: inline-block;
+}
+
+#div-banna input {
+	display:inline-block;
+  margin:5% 5% 5% 0%;
+  
+}
+
+#submitBanna{
+	
+ display: block;
+  max-width: 300px;
+  margin: auto;
+  margin-top:15%;
+	}
+
+#div-pref {
+  font-family:Sans-Serif;
+  background-color:#005999;
+  color:#fff;
+}
+
+#div-pref p{
+	text-align:left;
+	width:35%;
+	margin-right:10%;
+	  display: inline-block;
+}
+
+#div-pref input {
+	display:inline-block;
+  margin:5% 5% 5% 0%;
+  
+}
+
+#deletePref,#updatePref,#addPref{
+ display: inline-block;
+ margin-top:10%;
+  margin-left:15%;;
+	}
+
+	
+#div-addAdmin {
+  font-family:Sans-Serif;
+  background-color:#005999;
+  color:#fff;
+}
+
+#div-addAdmin p{
+	width:30%;
+	text-align:left;
+	margin-right:10%;
+	  display: inline-block;
+	  padding:1%;
+}
+
+#div-addAdmin input {
+	display:inline-block;
+  margin:5% 5% 5% 0%;
+  
+}
+
+#submitAddAdmin{
+	
+ display: block;
+  max-width: 300px;
+  margin: auto;
+  margin-top:15%;
+	}
+	
+	
+	#div-deleteAdmin {
+  font-family:Sans-Serif;
+  background-color:#005999;
+  color:#fff;
+}
+
+#div-deleteAdmin p{
+	width:30%;
+	text-align:left;
+	margin-right:10%;
+	  display: inline-block;
+	  padding:1%;
+}
+
+#div-deleteAdmin input {
+	display:inline-block;
+  margin:5% 5% 5% 0%;
+  
+}
+
+#submitDeleteAdmin{
+	
+ display: block;
+  max-width: 300px;
+  margin: auto;
+  margin-top:15%;
+	}
+	

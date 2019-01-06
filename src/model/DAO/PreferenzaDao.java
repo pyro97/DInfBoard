@@ -1,6 +1,7 @@
 package model.DAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -54,24 +55,79 @@ public class PreferenzaDao implements GenericDao<Preferenza,Integer> {
 
 	@Override
 	public Preferenza get(Integer id) {
-		return null;
+		String nome = "";
+		
+		String sql = "Select * from Preferenze where ID_Preferenza = ?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				id = rs.getInt("ID");
+				nome = rs.getString("Nome");	
+			}
+			return new Preferenza(id,nome);
+
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
 	public boolean add(Preferenza p) {
-		return false;
+		String sql = "Insert into Preferenze(ID_Preferenza,Nome_Preferenza)"
+				+ "values(?,?)";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, p.getID());
+			ps.setString(2,p.getNome());
+	
+			ps.execute();
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	@Override
 	public boolean remove(Integer id) {
-		// TODO Auto-generated method stub
-		return false;
+		int result=0;
+		
+		String sql = "delete from Preferenze where ID_Preferenza = ?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, id);
+			result = ps.executeUpdate();
+			if(result!=0)
+				return true;
+			else return false;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean update(Preferenza a) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "UPDATE Preferenze SET ID_Preferenza=?, Nome_Preferenza=? WHERE ID_Preferenza=?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setInt(1, a.getID());
+			ps.setString(2,a.getNome());
+			ps.setInt(3, a.getID());
+		
+			ps.execute();
+			return true;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	@Override

@@ -30,7 +30,7 @@ public class InserisciAmministratoreServlet extends HttpServlet {
 		
 		Studente admin = new Studente(nome,cognome,preferenza,email,username,password,true,false,0);	
 		if(ManagerAdmin.inserisciAdmin(admin)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("adminArea.jsp");
 			dispatcher.forward(request, response);
 		}
 		else {

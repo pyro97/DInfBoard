@@ -1,0 +1,10 @@
+#body {
+  background-color: #aliceblue;
+}
+
+#content {
+  background-color:antiquewhite;
+  margin:5%;
+  padding:10%;
+  border-style:solid;
+}

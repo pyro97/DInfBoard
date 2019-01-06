@@ -9,19 +9,26 @@
 </head>
 <body>
 
+
+
+<%@ include file="header.jsp" %>
+
 <%
-Boolean auth = (Boolean) session.getAttribute("auth");
-if(auth==null || !auth)
+
+
+if(auth==null || !auth || utente==null ) {
 	response.sendRedirect("login.jsp");
+}else{
+	if(utente.isIsAdmin())		response.sendRedirect("login.jsp");
+
+}
+  
 
 StudenteDao dao = new StudenteDao();
 String user = (String) request.getParameter("username");
 Studente s = dao.get(user);
 dao.close();
 %>
-
-<%@ include file="header.jsp" %>
-
 <div id="userDiv">
 
 <h2>Valutazione</h2><%=s.getValutazione()%> <br>
