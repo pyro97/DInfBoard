@@ -59,3 +59,23 @@ header div {
 #header_right img {
   width: 35%;
 }
+
+
+#header_right button {
+  color:#fff;
+  text-decoration: none;
+  margin:2% 0%;
+  padding:1% 5px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 3px;
+  border-color:#99210e;
+  background-color: #99210e;
+  color:#fff;
+  transition-duration: 0.4s;
+}
+
+#header_right button:hover {
+  color: #99210e;
+  background-color: #fff;
+}
