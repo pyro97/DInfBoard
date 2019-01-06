@@ -36,6 +36,8 @@ if(auth==null || !auth) {
 		
 		<br>
 		
+		<a href="modificaProfilo.jsp?username=<%=session.getAttribute("username")%>">Clicca qui per modificare il tuo profilo</a>
+		
 		<form action = "LogoutServlet" method="post">
 			<button id="logout-button">Logout</button>
 		</form>

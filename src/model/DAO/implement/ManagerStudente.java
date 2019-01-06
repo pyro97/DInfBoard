@@ -45,14 +45,29 @@ public class ManagerStudente {
 		}
 	}
 	
+	public static Studente getStudente(String username) {
+		StudenteDao dao = new StudenteDao();
+		Studente s = dao.get(username);
+		return s;
+
+	}
+	
 	public static boolean modificaProfilo(Studente s) {
-		return true;
+		StudenteDao dao = new StudenteDao();
+		if(dao.update(s))	return true;
+		else	return false;
+		
 	}
 	public static boolean eliminaProfilo(Studente s) {
-		return true;
+		StudenteDao dao = new StudenteDao();
+		if(dao.remove(s.getUsername()))	return true;
+		else	return false;
 	}
 	public static boolean valutazione(Studente s,int valutazione,int numeroAnnunciOrganizzati) {
-		return true;
+		s.setValutazione(valutazione);
+		StudenteDao dao = new StudenteDao();
+		if(dao.update(s))	return true;
+		else	return false;
 	}
 
 }

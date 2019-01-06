@@ -14,7 +14,7 @@ public class ManagerAdmin {
 		
 			AdminDao dao = new AdminDao();
 			if(dao.add(a)) {
-				dao.close();
+				dao.close();	
 				return true;
 			}
 			else 
@@ -60,4 +60,13 @@ public class ManagerAdmin {
 		else 
 			return false;
 	}
+	
+	public static Studente getAdmin(String username) {
+		
+		AdminDao dao = new AdminDao();
+		Studente s = dao.get(username);
+		return s;
+
+	
+}
 }

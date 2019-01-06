@@ -1,52 +1,62 @@
 <%@page import="model.PJO.Studente"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.DAO.* , model.PJO.*"%>
     
     
-    <%
-Boolean auth2 = (Boolean) session.getAttribute("auth");
-    Studente s=(Studente) session.getAttribute("studente");
 
-if(auth2==null || !auth2 || s==null) {
-	response.sendRedirect("login.jsp");
-}
-
-%>   
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>Modifica Profilo - DInfBoard</title>
-	<link rel="stylesheet" href="css/registrazione.css">
+	<link rel="stylesheet" href="css/profiloUser.css">
 </head>
 <body>
 
 <%@include file="header.jsp"%>
 
-	<div id="div-registrazione">
-	<%if(s!=null){ %>
+    <%
+
+    StudenteDao dao = new StudenteDao();
+    Studente utente = dao.get(request.getParameter("username")); 
+
+%>   
+<div class="row">
+  
+  
+  <div class="right" style="background-color:#005999;">
+    <h1 class="titolo">Modifica Profilo</h1>
+  
 	Modifica Profilo
-		<form action="ModificaProfiloServlet">
-		
+		<form id="form" action="ModificaProfiloServlet">
+
 			Inserisci Username
-			<input type="text" name="username" placeholder="Inserisci.."><%=s.getUsername() %><br>
-			Inserisci E-mail
-			<input type="text" name="email" placeholder="Inserisci.."><%=s.getEmail() %><br>
-			Inserisci Password
-			<input type="password" name="password" placeholder="Inserisci.."><%=s.getPassword() %><br>
-			Inserisci il tuo nome
-			<input type="text" name ="nome" placeholder="Inserisci.."><%=s.getNome() %><br>
-			Inserisci il tuo cognome
-			<input type="text" name="cognome" placeholder="Inserisci.."><%=s.getCognome() %><br>
-			Inserisci preferenza ( Inserire '0' per andare avanti)
-			<input type="text" name="preferenza" placeholder="Inserisci.."><%=s.getPreferenza() %><br>
+			<input type="text" name="username" value="<%=utente.getUsername()%>"><br>
+		 	Inserisci Nome
+		 	<input type="text" name="nome" value="<%=utente.getNome()%>"><br>
+		 	Inserisci Cognome
+		 	<input type="text" name="cognome" value="<%=utente.getCognome()%>"><br>
+		 	Inserisci Preferenza
+		 	<input type="text" name="preferenza" value="<%=utente.getPreferenza()%>"><br>
+		 	Inserisci Email
+		 	<input type="text" name="email" value="<%=utente.getEmail()%>"><br>
+		 	Inserisci Password
+		 	<input type="text" name="password" value="<%=utente.getPassword()%>"><br>
+		 	
+			
 			
 			<br><br>
-			<button id="conferma-button">Conferma</button>
+			<button id="updateProf">Conferma</button>
 			
 		</form>
-	<%} %>
-	</div>
+	
+    	
+    	
+        
+        
+        </div>
+    
+  </div>
 
 <%@include file="footer.jsp"%>
 
