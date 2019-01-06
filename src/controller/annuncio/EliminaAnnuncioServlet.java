@@ -3,6 +3,7 @@ package controller.annuncio;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.DAO.AnnuncioDao;
+import model.DAO.implement.ManagerAnnuncio;
 import model.PJO.Annuncio;
 import model.PJO.Sender;
 import model.PJO.Studente;
@@ -42,6 +44,15 @@ public class EliminaAnnuncioServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		dao.remove(id);
+		
+		ServletContext ctx = getServletContext();
+		ArrayList<Annuncio> bacheca = ManagerAnnuncio.ottieniBacheca();
+		if(bacheca==null)
+			response.sendRedirect("error.jsp");
+		else {
+			ctx.setAttribute("bacheca", bacheca);
+		}
+		response.sendRedirect("userArea.jsp");
 		dao.close();
 	}
 

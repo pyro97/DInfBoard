@@ -1,6 +1,9 @@
 package controller.annuncio;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,6 +28,15 @@ public class ArchiviaAnnuncioServlet extends HttpServlet {
 		AnnuncioDao dao = new AnnuncioDao();
 		Annuncio a = dao.get(id);
 		ManagerAnnuncio.annuncioNonVisibile(a);
+		
+		ServletContext ctx = getServletContext();
+		
+		ArrayList<Annuncio> bacheca = ManagerAnnuncio.ottieniBacheca();
+		if(bacheca==null)
+			response.sendRedirect("error.jsp");
+		else {
+			ctx.setAttribute("bacheca", bacheca);
+		}
 		response.sendRedirect("userArea.jsp");
 		
 	}

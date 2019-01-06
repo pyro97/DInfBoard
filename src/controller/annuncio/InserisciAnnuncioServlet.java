@@ -83,11 +83,11 @@ public class InserisciAnnuncioServlet extends HttpServlet {
 	    String path_per_annuncio = "img/annunci/"+id + ".png";
 	    
 		Annuncio a = new Annuncio(id,titolo,descrizione,path_per_annuncio,0,username,true,preferenza);
-		bacheca.add(a);
 		ctx.setAttribute("bacheca", bacheca);
 		
 		boolean flag = ManagerAnnuncio.inserisciAnnuncio(a);
 		if(flag) {
+			bacheca.add(a);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 			dispatcher.forward(request, response);
 		}

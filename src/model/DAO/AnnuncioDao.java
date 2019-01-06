@@ -135,7 +135,7 @@ public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 	public boolean remove(Integer id) {
 		int result=0;
 		
-		String sql = "delete * from Annunci where ID = ?";
+		String sql = "delete from Annunci where ID = ?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, id);
