@@ -24,9 +24,9 @@ if(auth==null || !auth)
 		<form action=InserisciAnnuncioServlet method=post enctype="multipart/form-data">
 		
 			Inserisci Titolo
-			<input type="text" name="titolo" placeholder="Inserisci..">
+			<input type="text" id="titolo" name="titolo" placeholder="Inserisci..">
 			Inserisci Descrizione
-			<input type="textarea" name="descrizione" placeholder="Inserisci..">
+			<input type="textarea" id="descrizione" name="descrizione" placeholder="Inserisci..">
 			Inserisci Immagine
 			<input type="file" name="immagine">
 			
@@ -50,6 +50,19 @@ if(auth==null || !auth)
 			<button type="submit">Inserisci Annuncio</button>
 			
 		</form>
+		
+	<script>
+	function inserisciAnnuncioHandler()
+	{
+		var x= cAnnuncioForm();
+			if(x)
+			{
+				console.log("Annuncio ok.");	
+			}
+	}
+	</script>
+	<script src="js/controlloForm.js"></script>
+	
 	
 	</div>
 
