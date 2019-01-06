@@ -16,20 +16,22 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
         }
 
     x=document.getElementById("password").value;
-        if(x.value==null || x.value.lenght<6 || x.value.lenght>30)
+    console.log(x);
+        if(x==null || x.lenght<6 || x.lenght>30)
         {
             alert("Inserire una password corretta. Almeno 6 caratteri.");
             return false;
         }
 
-        if(x.value.lenght>30)
+        if(x.lenght>30)
         {
             alert("Inserire una password più corta.");
             return false;
         }
 
     x=document.getElementById("email").value;
-        if(x.value==null || x.value.lenght<10)
+    console.log(x);
+        if(x==null || x.lenght<10)
         {
             alert("Inserire una mail corretta.");
             return false;
@@ -43,22 +45,30 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
         } */ 
 
      x=document.getElementById("nome").value;
-            if(x.value==null || x.value.lenght<3)
+     console.log(x);
+            if(x==null || x.lenght<3)
             {
                 alert("Inserire un nome corretto.");
                 return false;
             }
 
-            if(x.value.lenght>15)
+            if(x.lenght>15)
             {
                 alert("Inserire un nome più breve.");
                 return false;
             }
 
     x=document.getElementById("cognome").value;
-        if(x.value==null || x.value.lenght<=3 || x.value.lenght>15)
+    console.log(x);
+        if(x==null || x.lenght<=3 || x.lenght>15)
         {
             alert("Inserire un cognome corretto.");
+            return false;
+        }
+
+        if(x.length>15)
+        {
+            alert("Il cognome inserito è troppo lungo.");
             return false;
         }
 
@@ -68,21 +78,23 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
 function cAnnuncioForm () //Controllo del form relativo all'inserimento di un annuncio.
 {
     
-    var x= document.getElementById("titolo");
-        if (x.value==null || x.value.lenght<=3 || x.value.lenght>50)
+    var x= document.getElementById("titolo").value;
+    console.log(x);
+        if (x==null || x.lenght<=3 || x.lenght>50)
         {
             alert("Inserire un titolo corretto.");
             return false;
         }
 
-    x= document.getElementById("descrizione");
-        if (x.value==null || x.value.lenght<=3)
+    x= document.getElementById("descrizione").value;
+    console.log(x);
+        if (x==null || x.lenght<=3)
         {
             alert("Inserire una descrizione corretta.");
             return false;
         }
 
-        if(x.value.lenght>65535)
+        if(x.lenght>65535)
         {
             alert("La descrizione è troppo lunga.");
             return false;
@@ -94,14 +106,17 @@ function cAnnuncioForm () //Controllo del form relativo all'inserimento di un an
 function cLoginForm () //Controllo del form relativo al login.
 {
     
-    var x= document.getElementById("username");
-        if(x.value==null || x.value.lenght<3 || x.value.lenght>15)
+    var x= document.getElementById("username").value;
+    console.log(x);
+        if(x==null || x.lenght<3 || x.lenght>15)
         {
             alert("Inserire un username corretto.");
             return false;
         }
-            x=document.getElementById("password");
-        if(x.value==null || x.value.lenght<6 || x.value.lenght>15)
+    
+    x=document.getElementById("password").value;
+    console.log(x);
+        if(x==null || x.lenght<6 || x.lenght>15)
         {
             alert("Inserire una password corretta.");
             return false;
@@ -113,8 +128,9 @@ function cLoginForm () //Controllo del form relativo al login.
 function cUserAdmin() //Controllo del form relativo all'inserimento/rimozione di un Amministratore tramite username.
 {
     
-    var x= document.getElementById("username");
-        if(x.value==null || x.value.lenght<3 || x.value.lenght>15)
+    var x= document.getElementById("username").value;
+    console.log(x);
+        if(x==null || x.lenght<3 || x.lenght>15)
         {
             alert("Inserire un username corretto.");
             return false;
@@ -126,8 +142,8 @@ function cUserAdmin() //Controllo del form relativo all'inserimento/rimozione di
 function cPreferenzeForm () //Controllo del form relativo all'inserimento di una preferenza da parte di un amministratore.
 {
     
-    var x= document.getElementById("preferenza");
-        if(x.value==null || x.value.lenght<3 || x.value.lenght>15)
+    var x= document.getElementById("preferenza").value;
+        if(x==null || x.lenght<3 || x.lenght>15)
         {
             alert("Inserire una preferenza corretta.");
             return false;
@@ -139,14 +155,14 @@ function cPreferenzeForm () //Controllo del form relativo all'inserimento di una
 function cRicercaForm() //Controllo del form relativo alla ricerca di un annuncio nella sezione bacheca.
 {
     
-    var x= document.getElementById("ricerca");
-        if(x.value==null || x.value.lenght<3)
+    var x= document.getElementById("ricerca").value;
+        if(x==null || x.lenght<3)
         {
             alert("Inserire una chiave di ricerca valida.");
             return false;
         }
 
-        if(x.value.lenght>15)
+        if(x.lenght>15)
         {
             alert("Inserire una chiave di ricerca più breve.");
             return false;
