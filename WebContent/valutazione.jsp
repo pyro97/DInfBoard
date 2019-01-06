@@ -12,11 +12,12 @@
 <%@include file="header.jsp"%>
 
 <%
-if(auth==null || !auth || utente==null )
-{
-	{
-		response.sendRedirect("login.jsp");
-	}
+
+Boolean auth = (Boolean) session.getAttribute("auth");
+Studente s = (Studente) session.getAttribute("utente");
+
+if(!auth || auth==null) {
+	response.sendRedirect("login.jsp");
 }
 
 String utenteDaValutare=request.getParameter("username");

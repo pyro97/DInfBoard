@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="model.PJO.Studente, model.DAO.*, java.util.ArrayList, model.PJO.Annuncio"%>
 
-    
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +13,24 @@
 <%@include file="header.jsp"%>
 <%
 
-if(auth==null || !auth || utente==null ) {
-	response.sendRedirect("login.jsp");
-}else{
-	if(utente.isIsAdmin())		response.sendRedirect("login.jsp");
+Boolean auth = (Boolean) session.getAttribute("auth");
+Studente stud = (Studente) session.getAttribute("utente");
 
+if(!auth || auth==null) {
+	response.sendRedirect("login.jsp");
 }
 %>   
 
 	<div id="div-userarea">
 	
 		Benvenuto nell'area utente di <%=session.getAttribute("username") %>
+		
+		<%
+		if(stud.isIsAdmin()) {
+			%> Accedi all'area riservata agli amministratori da questo link <br>
+			<a href="adminArea.jsp">Area Admin</a> <%
+		}
+		%>
 		
 		<br>
 		

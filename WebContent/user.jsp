@@ -15,13 +15,12 @@
 
 <%
 
+Boolean auth = (Boolean) session.getAttribute("auth");
 
-if(auth==null || !auth || utente==null ) {
+if(!auth || auth==null) {
 	response.sendRedirect("login.jsp");
-}else{
-	if(utente.isIsAdmin())		response.sendRedirect("login.jsp");
-
 }
+
   
 
 StudenteDao dao = new StudenteDao();

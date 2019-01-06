@@ -15,13 +15,13 @@
 <%@include file="header.jsp"%>
 
 <%
+Boolean auth = (Boolean) session.getAttribute("auth");
+Studente s = (Studente) session.getAttribute("utente");
 
-if(auth==null || !auth || utente==null ) {
-	response.sendRedirect("login.jsp");
-}else{
-	if(!utente.isIsAdmin())		response.sendRedirect("login.jsp");
-
+if(!auth || !s.isIsAdmin() || auth==null) {
+	response.sendRedirect("restricted.jsp");
 }
+
 %>   
 
 <div class="row">

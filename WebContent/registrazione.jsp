@@ -66,6 +66,14 @@
 	
 	</div>
 
+<%
+Boolean missedRegistration = (Boolean) session.getAttribute("missed-registration");
+if(missedRegistration) {
+	%> La registrazione non è andata a buon fine, riprova in un secondo momento <%
+}
+session.removeAttribute("missed-registration");
+%>
+
 <%@include file="footer.jsp"%>
 
 </body>

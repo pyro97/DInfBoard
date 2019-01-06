@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 		Studente s = ManagerStudente.login(username,password);
 		if(s==null) {
 			request.getSession().setAttribute("not-logged",true);
-			response.sendRedirect("error.jsp");
+			response.sendRedirect("login.jsp");
 		}
 		else {
 			request.getSession().setAttribute("auth", true);

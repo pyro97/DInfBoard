@@ -45,6 +45,14 @@
 	
 	</div>
 
+<%
+boolean notlogged = (Boolean) session.getAttribute("not-logged");
+if(notlogged) {
+	%> <h2>Hai inserito delle credenziali errate</h2> <%
+	session.removeAttribute("not-logged");
+}
+%>
+
 <%@include file="footer.jsp"%>
 
 </body>

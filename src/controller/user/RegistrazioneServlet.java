@@ -36,12 +36,12 @@ public class RegistrazioneServlet extends HttpServlet {
 			request.getSession().setAttribute("auth", true);
 			request.getSession().setAttribute("username", username);
 			request.getSession().setAttribute("utente", s);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("userArea.jsp");
 			dispatcher.forward(request, response);
 		}
 		else {
 			request.getSession().setAttribute("missed-registration", true);
-			response.sendRedirect("error.jsp");
+			response.sendRedirect("registrazione.jsp");
 		}
 			
 	}

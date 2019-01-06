@@ -11,6 +11,7 @@
 <%@include file="header.jsp" %>
 
 <%
+Boolean auth = (Boolean) session.getAttribute("auth");
 if(auth==null || !auth)
 	response.sendRedirect("login.jsp");
 
