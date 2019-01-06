@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList, model.PJO.Preferenza, model.DAO.implement.ManagerPreferenza"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,8 +26,22 @@
 			<input type="text" id="nome" name ="nome" placeholder="Inserisci.."><br>
 			Inserisci il tuo cognome
 			<input type="text" id="cognome" name="cognome" placeholder="Inserisci.."><br>
-			Inserisci preferenza ( Inserire '0' per andare avanti)
-			<input type="text" name="preferenza" placeholder="Inserisci.."><br>
+			Inserisci preferenza 
+			
+			<%
+			ArrayList<Preferenza> elencoPreferenza;
+			elencoPreferenza = ManagerPreferenza.getElencoPreferenze();
+			%>
+			
+			<select name="preferenza">
+				<%
+				for(int i=0;i<elencoPreferenza.size();i++) {
+					%> 
+					<option value="<%=elencoPreferenza.get(i).getNome()%>"><%=elencoPreferenza.get(i).getNome()%></option>
+					<%
+				}
+				%>
+			</select>
 			
 			<br><br>
 			
@@ -38,11 +52,11 @@
 	<script>
 	
 	function registrazioneHandler() {
-		var x = cRegistrazioneForm();
-		if(x) {
-			//document.getElementById("registrazioneForm").submit(); 
-			console.log("Sono qui");
-		}
+		//var x = cRegistrazioneForm();
+		//if(x) {
+			document.getElementById("registrazioneForm").submit(); 
+		//	console.log("Sono qui");
+		//}
 			
 	}
 	

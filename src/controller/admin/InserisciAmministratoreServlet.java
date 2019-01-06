@@ -26,7 +26,7 @@ public class InserisciAmministratoreServlet extends HttpServlet {
 		String cognome = request.getParameter("cognome");
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
-		int preferenza = Integer.parseInt(request.getParameter("preferenza"));
+		String preferenza = request.getParameter("preferenza");
 		
 		Studente admin = new Studente(nome,cognome,preferenza,email,username,password,true,false,0);	
 		if(ManagerAdmin.inserisciAdmin(admin)) {
