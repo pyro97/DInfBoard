@@ -5,14 +5,14 @@ public class Studente {
 	private String nome;
 	private String cognome;
 	private String username;
-	private int preferenza;
+	private String preferenza;
 	private String email;
 	private String password;
 	private boolean IsAdmin;
 	private boolean IsSospeso;
 	private int Valutazione;
 	
-	public Studente(String nome,String cognome,int preferenza,String email,String username,String password,boolean isAdmin,boolean isSospeso,int valutazione) {
+	public Studente(String nome,String cognome,String preferenza,String email,String username,String password,boolean isAdmin,boolean isSospeso,int valutazione) {
 		setNome(nome);
 		setCognome(cognome);
 		setPreferenza(preferenza);
@@ -24,7 +24,7 @@ public class Studente {
 		setValutazione(valutazione);
 	}
 	
-	public Studente(String nome,String cognome,String email,String username,String password,int preferenza) {
+	public Studente(String nome,String cognome,String email,String username,String password,String preferenza) {
 		setNome(nome);
 		setCognome(cognome);
 		setEmail(email);
@@ -54,10 +54,10 @@ public class Studente {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	public int getPreferenza() {
+	public String getPreferenza() {
 		return preferenza;
 	}
-	public void setPreferenza(int preferenza) {
+	public void setPreferenza(String preferenza) {
 		this.preferenza = preferenza;
 	}
 	public String getEmail() {

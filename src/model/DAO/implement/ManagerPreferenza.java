@@ -1,45 +1,15 @@
 package model.DAO.implement;
 
-import model.DAO.AnnuncioDao;
-import model.DAO.PreferezaDao;
-import model.PJO.Annuncio;
+import java.util.ArrayList;
 import model.PJO.Preferenza;
+import model.DAO.*;
 
 public class ManagerPreferenza {
-	
-	public static boolean inserisciPreferenza(Preferenza a) {
-		
-		PreferezaDao dao = new PreferezaDao();
-		if(dao.add(a)) {
-			dao.close();
-			return true;
-		}
-		else 
-			return false;
-	
-}
-	public static boolean rimuoviPreferenzaPersistente(Preferenza a) {
-	
-		PreferezaDao dao = new PreferezaDao();
-		if(dao.remove(a.getID())) {
-			dao.close();
-			return true;
-		}
-		else 
-			return false;
-	
-}
 
-	public static boolean modificaAnnuncio(Preferenza a) {
-	
-	PreferezaDao dao = new PreferezaDao();
-		if(dao.update(a)) {
-			dao.close();
-			return true;
-		}
-		else 
-			return false;
-	
-	
-}
+	public static ArrayList<Preferenza> getElencoPreferenze() {
+		PreferenzaDao dao = new PreferenzaDao();
+		ArrayList<Preferenza> elenco = dao.getAll();
+		dao.close();
+		return elenco;
+	}
 }

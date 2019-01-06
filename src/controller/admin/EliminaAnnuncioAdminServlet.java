@@ -22,7 +22,7 @@ public class EliminaAnnuncioAdminServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int id= (int) request.getAttribute("idAnnuncio");
 		if(ManagerAdmin.eliminaAnnuncioAdmin(id)) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("adminArea.jsp");
 			dispatcher.forward(request, response);
 		}else {
 			response.sendRedirect("error.jsp");

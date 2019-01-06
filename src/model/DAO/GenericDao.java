@@ -9,6 +9,6 @@ public interface GenericDao<T,S> {
 	 T get(S id);
 	boolean add(T a);
 	boolean remove(S id);
-	boolean update(T t);
+	boolean update(T a);
 	boolean close();
 }

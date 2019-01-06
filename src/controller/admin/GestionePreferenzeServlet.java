@@ -13,25 +13,16 @@ import model.DAO.PreferenzaDao;
 import model.PJO.Preferenza;
 
 
-/**
- * Servlet implementation class GestionePreferenzeServlet
- */
 @WebServlet("/GestionePreferenzeServlet")
 public class GestionePreferenzeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public GestionePreferenzeServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		int id= Integer.parseInt(request.getParameter("id"));
 		String nome= request.getParameter("nome");
 
@@ -58,11 +49,7 @@ public class GestionePreferenzeServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

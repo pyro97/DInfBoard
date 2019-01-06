@@ -2,77 +2,80 @@ package model.DAO.implement;
 
 import java.util.ArrayList;
 
-import model.DAO.AdminDao;
 import model.DAO.AnnuncioDao;
-import model.DAO.StudenteDao;
 import model.PJO.Annuncio;
 import model.PJO.Studente;
 
 public class ManagerAnnuncio {
 
 	public static boolean inserisciAnnuncio(Annuncio a) {
+		AnnuncioDao dao = new AnnuncioDao();
+		boolean flag = dao.add(a);
+		dao.close();
+		if(flag)
+			return true;
+		else
+			return false;
+	}
 	
-			AnnuncioDao dao = new AnnuncioDao();
-			a.setIsVisible(true);
-			if(dao.add(a)) {
-				dao.close();
-				return true;
-			}
-			else 
-				return false;
-		
+	public static ArrayList<Annuncio> ottieniBacheca() {
+		AnnuncioDao dao = new AnnuncioDao();
+		ArrayList<Annuncio> bacheca = dao.getAll();
+		dao.close();
+		return bacheca;
 	}
-	public static boolean rimuoviAnnuncioPersistente(int id) {
+	
+	public static boolean rimuoviAnnuncioPersistente(Annuncio a) {
 		
-			AnnuncioDao dao = new AnnuncioDao();
-			if(dao.remove(id) ){
-				dao.close();
-				return true;
-			}
-			else 
-				return false;
-		
+		AnnuncioDao dao = new AnnuncioDao();
+		if(dao.remove(a.getID()) ){
+			dao.close();
+			return true;
+		}
+		else 
+			return false;
 	}
-	public static boolean annuncioNonVisibile(int id) {
-		
-			AnnuncioDao dao = new AnnuncioDao();
-			Annuncio a= dao.get(id);
-			if(a==null) {
-				return false;
-			}else {
-				a.setIsVisible(false);
-				if(dao.update(a)) {
-					dao.close();
-					return true;
-				}
-				else 
-					return false;
-			}
-			
-		
-	}
-	public static boolean modificaAnnuncio(Annuncio a) {
-		
-			AnnuncioDao dao = new AnnuncioDao();
+	public static boolean annuncioNonVisibile(Annuncio a) {
+		AnnuncioDao dao = new AnnuncioDao();
+		if(a==null) {
+			return false;
+		}else {
+			a.setIsVisible(false);
 			if(dao.update(a)) {
 				dao.close();
 				return true;
 			}
 			else 
 				return false;
+		}
+	}
+	
+	public static boolean modificaAnnuncio(Annuncio a) {
 		
-		
+		AnnuncioDao dao = new AnnuncioDao();
+		if(dao.update(a)) {
+			dao.close();
+			return true;
+		}
+		else 
+			return false;
 	}
 	public static boolean eliminaPartecipazione(Studente s,Annuncio a) {
-		AnnuncioDao dao = new AnnuncioDao();
-		StudenteDao sdao = new StudenteDao();
 		
-		ArrayList<Annuncio> ann=new ArrayList<>();
-		for(Annuncio annuncio :ann) {
-		/*	if(annuncio.getID()==s.getIDAnnuncio) ?????
-				dao.remove(annuncio.getID());*/
-		}
-	
-		return true;
+		AnnuncioDao dao = new AnnuncioDao();
+		boolean flag = dao.removePartecipazione(s, a);
+		if(flag)
+			return true;
+		else
+			return false;
+	}
+	public static boolean aggiungiPartecipazione(Studente s,Annuncio a) {
+		
+		AnnuncioDao dao = new AnnuncioDao();
+		boolean flag = dao.addPartecipante(s, a);
+		if(flag)
+			return true;
+		else
+			return false;
 	}
 }

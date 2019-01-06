@@ -7,7 +7,7 @@ public class Preferenza {
 	
 	public Preferenza(int ID,String Nome) {
 		setID(ID);
-		setNome(nome);
+		setNome(Nome);
 	}
 
 	public int getID() {

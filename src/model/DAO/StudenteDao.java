@@ -1,15 +1,16 @@
 package model.DAO;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import model.PJO.Admin;
 import model.PJO.Annuncio;
 import model.PJO.Studente;
 
@@ -41,15 +42,14 @@ public class StudenteDao implements GenericDao<Studente,String> {
 		String cognome= "";
 		boolean isAdmin = false;
 		boolean isSospeso = false;
-		int preferenza = 0;
+		String preferenza = "";
 		int valutazione = 0;
-		ArrayList<Studente> studenti=new ArrayList<>();
-		boolean valore=false;
-		String sql = "Select * from Studenti where isAdmin = ?";
+		ArrayList<Studente> studenti=new ArrayList<Studente>();
+		String sql = "select * from Studenti join Preferenze on Preferenza=ID_Preferenza";
 		try {
-			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setBoolean(7,valore);
-			ResultSet rs = ps.executeQuery();
+			
+			Statement s = connection.createStatement();
+			ResultSet rs = s.executeQuery(sql);
 			while(rs.next()) {
 				username = rs.getString("Username");
 				password = rs.getString("Password");
@@ -59,7 +59,7 @@ public class StudenteDao implements GenericDao<Studente,String> {
 				isAdmin = rs.getBoolean("isAdmin");
 				isSospeso = rs.getBoolean("isSospeso");
 				valutazione = rs.getInt("Valutazione");
-				preferenza = rs.getInt("Preferenza");
+				preferenza = rs.getString("Nome_Preferenza");
 				
 				studenti.add(new Studente(nome,cognome,preferenza,email,username,password,isAdmin,isSospeso,valutazione));
 			}
@@ -81,10 +81,10 @@ public class StudenteDao implements GenericDao<Studente,String> {
 		String cognome= "";
 		boolean isAdmin = false;
 		boolean isSospeso = false;
-		int preferenza = 0;
+		String preferenza = "";
 		int valutazione = 0;
 		
-		String sql = "Select * from Studenti where Username = ?";
+		String sql = "select * from Studenti join Preferenze on Preferenza=ID_Preferenza where Username=?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, id);
@@ -98,7 +98,7 @@ public class StudenteDao implements GenericDao<Studente,String> {
 				isAdmin = rs.getBoolean("isAdmin");
 				isSospeso = rs.getBoolean("isSospeso");
 				valutazione = rs.getInt("Valutazione");
-				preferenza = rs.getInt("Preferenza");
+				preferenza = rs.getString("Nome_Preferenza");
 				
 			}
 			return new Studente(nome,cognome,preferenza,email,username,password,isAdmin,isSospeso,valutazione);
@@ -112,9 +112,20 @@ public class StudenteDao implements GenericDao<Studente,String> {
 
 	@Override
 	public boolean add(Studente s) {
+		
+		String getPreferenza = "select * from Preferenze where Nome_Preferenza=?";
 		String sql = "Insert into Studenti(Username,Password,Valutazione,Nome,Cognome,Email,isAdmin,isSospeso,Preferenza)"
 				+ "values(?,?,?,?,?,?,?,?,?)";
 		try {
+			
+			int preferenza = 0;
+			PreparedStatement psPref = connection.prepareStatement(getPreferenza);
+			psPref.setString(1, s.getPreferenza());
+			ResultSet rsPref = psPref.executeQuery();
+			while(rsPref.next()) {
+				preferenza = rsPref.getInt("ID_Preferenza");
+			}
+			
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, s.getUsername());
 			ps.setString(2, s.getPassword());
@@ -124,7 +135,7 @@ public class StudenteDao implements GenericDao<Studente,String> {
 			ps.setString(6,s.getEmail());
 			ps.setBoolean(7, s.isIsAdmin());
 			ps.setBoolean(8, s.isIsSospeso());
-			ps.setInt(9, s.getPreferenza());
+			ps.setInt(9,preferenza);
 			ps.execute();
 			return true;
 		}
@@ -135,13 +146,13 @@ public class StudenteDao implements GenericDao<Studente,String> {
 	}
 	
 	@Override
-	public boolean remove(String id) {
+	public boolean remove(String username) {
 		int result=0;
 		
-		String sql = "delete * from Studenti where Username = ?";
+		String sql = "delete from Studenti where Username = ?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, id);
+			ps.setString(1, username);
 			result = ps.executeUpdate();
 			if(result!=0)
 				return true;
@@ -152,16 +163,27 @@ public class StudenteDao implements GenericDao<Studente,String> {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public boolean update(Studente s) {
+		
+		String getPreferenza = "select * from Preferenze where Nome_Preferenza=?";
 		String sql = "UPDATE Studenti SET nome=?, cognome=?, preferenza=?,"
 				+ " email=?, username=?, password=?, isAdmin=?, isSospeso=?, valutazione=? WHERE Username=?";
 		try {
+			
+			int preferenza = 0;
+			PreparedStatement psPref = connection.prepareStatement(getPreferenza);
+			psPref.setString(1, s.getPreferenza());
+			ResultSet rsPref = psPref.executeQuery();
+			while(rsPref.next()) {
+				preferenza = rsPref.getInt("ID_Preferenza");
+			}
+			
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1, s.getNome());
 			ps.setString(2, s.getCognome());
-			ps.setInt(3, s.getPreferenza());
+			ps.setInt(3, preferenza);
 
 			ps.setString(4,s.getEmail());
 			ps.setString(5, s.getUsername());
@@ -183,47 +205,12 @@ public class StudenteDao implements GenericDao<Studente,String> {
 		}
 	}
 	
-	
 	public ArrayList<Annuncio> getPartecipati(Studente s) {
-		//????????
 		return null;
 	}
 	
 	public ArrayList<Annuncio> getOrganizzati(Studente s) {
-		int id = 0;
-		String titolo = "";
-		String descrizione= "";
-		String immagine= "";
-		int partecipanti= 0;
-		int id_organizzatore = 0;
-		boolean isVisible = false;
-		ArrayList<Annuncio> annunci=new ArrayList<>();
-		
-		String sql = "Select * from Annunci where ID_Organizzatore = ?";
-		try {
-			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, s.getUsername());    //?????????
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				id = rs.getInt("ID");
-				titolo = rs.getString("Titolo");
-				descrizione = rs.getString("Descrizione");
-				immagine = rs.getString("Immagine");
-				partecipanti = rs.getInt("Partecipanti");
-				id_organizzatore = rs.getInt("ID_Organizzatore");
-				isVisible = rs.getBoolean("isVisible");
-				
-				annunci.add(new Annuncio(id,titolo,descrizione,immagine,partecipanti,id_organizzatore,isVisible));
-
-			}
-			return annunci;
-
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return null;
-		}		
-		
+		return null;
 	}
 	
 	@Override
@@ -236,8 +223,6 @@ public class StudenteDao implements GenericDao<Studente,String> {
 			return false;
 		}
 	}
-
-	
 
 	
 }
