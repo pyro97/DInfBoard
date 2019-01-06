@@ -17,7 +17,7 @@
 
 Boolean auth = (Boolean) session.getAttribute("auth");
 
-if(!auth || auth==null) {
+if( auth==null|| !auth) {
 	response.sendRedirect("login.jsp");
 }
 

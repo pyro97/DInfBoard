@@ -16,7 +16,7 @@
 Boolean auth = (Boolean) session.getAttribute("auth");
 Studente stud = (Studente) session.getAttribute("utente");
 
-if(!auth || auth==null) {
+if(auth==null || !auth) {
 	response.sendRedirect("login.jsp");
 }
 %>   
@@ -24,9 +24,11 @@ if(!auth || auth==null) {
 	<div id="div-userarea">
 	
 		Benvenuto nell'area utente di <%=session.getAttribute("username") %>
+		<br>
+		
 		
 		<%
-		if(stud.isIsAdmin()) {
+		if(stud!=null && stud.isIsAdmin()) {
 			%> Accedi all'area riservata agli amministratori da questo link <br>
 			<a href="adminArea.jsp">Area Admin</a> <%
 		}

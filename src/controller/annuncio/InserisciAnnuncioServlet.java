@@ -88,11 +88,12 @@ public class InserisciAnnuncioServlet extends HttpServlet {
 		boolean flag = ManagerAnnuncio.inserisciAnnuncio(a);
 		if(flag) {
 			bacheca.add(a);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("BachecaServlet");
 			dispatcher.forward(request, response);
 		}
 		else {
-			response.sendRedirect("error.jsp");
+			request.getSession().setAttribute("not-added",true);
+			response.sendRedirect("inserisciAnnuncio.jsp");
 		}
 	}
 

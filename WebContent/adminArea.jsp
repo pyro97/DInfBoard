@@ -17,7 +17,7 @@
 Boolean auth = (Boolean) session.getAttribute("auth");
 Studente s = (Studente) session.getAttribute("utente");
 
-if(!auth || !s.isIsAdmin() || auth==null) {
+if(auth==null || !auth || !s.isIsAdmin()) {
 	response.sendRedirect("restricted.jsp");
 }
 

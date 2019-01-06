@@ -68,6 +68,14 @@ if(auth==null || !auth)
 	
 	</div>
 
+<%
+Boolean notAdded = (Boolean) session.getAttribute("not-added");
+if(notAdded!=null && notAdded) {
+	%> <h2>Inserimento annuncio non eseguito, riprova</h2> <%
+}
+session.removeAttribute("not-added");
+%>
+
 <%@ include file = "footer.jsp" %>
 
 </body>

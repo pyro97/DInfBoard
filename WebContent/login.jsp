@@ -14,27 +14,31 @@
 
 	<div id="div-login">
 	
-		<form action="LoginServlet" method="post">
+		<form action="LoginServlet" id="loginForm" method="post">
 		
 			<input type="text" id="username" name="username">
 			Inserisci Username
 			<input type="password" id="password" name="password">
 			Inserisci Password
-			<button id="submit">Accedi</button>
 			
 		</form>
 		
+		<button onclick="loginHandler()">Accedi</button>
+	
+	
+	<script src="js/controlloForm.js"></script>
+		
 	<script>
+	
 	function loginHandler()
 	{
 		var x= cLoginForm();
 			if(x)
 			{
-				console.log("Login ok.");	
+				document.getElementById("loginForm").submit();
 			}
 	}
 	</script>
-	<script src="js/controlloForm.js"></script>
 	
 	
 	Non sei ancora registrato?
@@ -46,8 +50,8 @@
 	</div>
 
 <%
-boolean notlogged = (Boolean) session.getAttribute("not-logged");
-if(notlogged) {
+Boolean notlogged = (Boolean) session.getAttribute("not-logged");
+if(notlogged!=null && notlogged) {
 	%> <h2>Hai inserito delle credenziali errate</h2> <%
 	session.removeAttribute("not-logged");
 }

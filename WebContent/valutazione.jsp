@@ -16,7 +16,7 @@
 Boolean auth = (Boolean) session.getAttribute("auth");
 Studente s = (Studente) session.getAttribute("utente");
 
-if(!auth || auth==null) {
+if(auth==null || !auth) {
 	response.sendRedirect("login.jsp");
 }
 

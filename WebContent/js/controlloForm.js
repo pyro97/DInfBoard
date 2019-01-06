@@ -17,7 +17,7 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
 
     x=document.getElementById("password").value;
     console.log(x);
-        if(!x|| x.lenght<6 || x.lenght>30)
+        if(!x || x.lenght<6 || x.lenght>30)
         {
             alert("Inserire una password corretta. Almeno 6 caratteri.");
             return false;
@@ -31,7 +31,7 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
 
     x=document.getElementById("email").value;
     console.log(x);
-        if(x==null || x.lenght<10)
+        if(!x || x.lenght<10)
         {
             alert("Inserire una mail corretta.");
             return false;
@@ -46,7 +46,7 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
 
      x=document.getElementById("nome").value;
      console.log(x);
-            if(x==null || x.lenght<3)
+            if(!x || x.lenght<3)
             {
                 alert("Inserire un nome corretto.");
                 return false;
@@ -60,7 +60,7 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
 
     x=document.getElementById("cognome").value;
     console.log(x);
-        if(x==null || x.lenght<=3 || x.lenght>15)
+        if(!x || x.lenght<=3 || x.lenght>15)
         {
             alert("Inserire un cognome corretto.");
             return false;
@@ -108,7 +108,7 @@ function cLoginForm () //Controllo del form relativo al login.
     
     var x= document.getElementById("username").value;
     console.log(x);
-        if(x==null || x.lenght<3 || x.lenght>15)
+        if(!x || x.lenght<3 || x.lenght>15)
         {
             alert("Inserire un username corretto.");
             return false;
@@ -116,7 +116,7 @@ function cLoginForm () //Controllo del form relativo al login.
     
     x=document.getElementById("password").value;
     console.log(x);
-        if(x==null || x.lenght<6 || x.lenght>15)
+        if(!x || x.lenght<6 || x.lenght>15)
         {
             alert("Inserire una password corretta.");
             return false;
