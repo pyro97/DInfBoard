@@ -206,11 +206,64 @@ public class StudenteDao implements GenericDao<Studente,String> {
 	}
 	
 	public ArrayList<Annuncio> getPartecipati(Studente s) {
-		return null;
+		
+		ArrayList<Annuncio> elenco = new ArrayList<Annuncio>();
+		String sql = "select * from (Studenti join Partecipazione on Username_Studente=Username) "
+				+ "join Annunci on ID_Annuncio=ID where Username=?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1,s.getUsername());
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				
+				String username = rs.getString(s.getUsername());
+				int ID = rs.getInt("ID");
+				String titolo = rs.getString("Titolo");
+				String descrizione = rs.getString("Descrizione");
+				String path = rs.getString("Immagine");
+				int partecipanti = rs.getInt("Partecipanti");
+				String preferenza = rs.getString("Nome_Preferenza");
+				boolean isVisible = rs.getBoolean("isVisible");
+				Annuncio a = new Annuncio(ID,titolo,descrizione,path,partecipanti,username,isVisible,preferenza);
+				elenco.add(a);
+			}
+			return elenco;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 	
 	public ArrayList<Annuncio> getOrganizzati(Studente s) {
-		return null;
+		
+		ArrayList<Annuncio> elenco = new ArrayList<Annuncio>();
+		String sql = "select * from (Studenti join Organizzazione on Username_Studente=Username) "
+				+ "join Annunci on ID_Annuncio=ID where Username=?";
+		try {
+			PreparedStatement ps = connection.prepareStatement(sql);
+			ps.setString(1,s.getUsername());
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				
+				String username = rs.getString(s.getUsername());
+				int ID = rs.getInt("ID");
+				String titolo = rs.getString("Titolo");
+				String descrizione = rs.getString("Descrizione");
+				String path = rs.getString("Immagine");
+				int partecipanti = rs.getInt("Partecipanti");
+				String preferenza = rs.getString("Nome_Preferenza");
+				boolean isVisible = rs.getBoolean("isVisible");
+				Annuncio a = new Annuncio(ID,titolo,descrizione,path,partecipanti,username,isVisible,preferenza);
+				elenco.add(a);
+			}
+			return elenco;
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	@Override

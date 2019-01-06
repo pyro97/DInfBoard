@@ -23,7 +23,6 @@
 			Inserisci Password
 			<input type="password" id="password" name="password" placeholder="Inserisci.."><br>
 			Inserisci il tuo nome
-<<<<<<< HEAD
 			<input type="text" id="nome" name ="nome" placeholder="Inserisci.."><br>
 			Inserisci il tuo cognome
 			<input type="text" id="cognome" name="cognome" placeholder="Inserisci.."><br>
@@ -43,46 +42,26 @@
 				}
 				%>
 			</select>
-=======
-			<input type="text" id="nome" name="nome" placeholder="Inserisci.."><br>
-			Inserisci il tuo cognome
-			<input type="text" id="cognome" name="cognome" placeholder="Inserisci.."><br>
-			Inserisci preferenza ( Inserire '0' per andare avanti)
-			<input type="text" name="preferenza" placeholder="Inserisci.."><br>
->>>>>>> 7a23c4c19f961258e9314ea2ca661e2c9437d391
 			
 			<br><br>
 			
 		</form>
 	
-<<<<<<< HEAD
 	<button onclick="registrazioneHandler()">Registrati</button>
 	
 	<script>
 	
-	function registrazioneHandler() {
-		//var x = cRegistrazioneForm();
-		//if(x) {
-			document.getElementById("registrazioneForm").submit(); 
-		//	console.log("Sono qui");
-		//}
-			
-	}
-	
-	</script>
-	
-=======
-	<script>
 	function registrazioneHandler()
 	{
 		var x= cRegistrazioneForm();
 			if(x)
 			{
-				console.log("Registrazione ok.");	
+				console.log(x);
+				document.getElementById("registrazioneForm").submit();
 			}
 	}
 	</script>
->>>>>>> 7a23c4c19f961258e9314ea2ca661e2c9437d391
+
 	<script src="js/controlloForm.js"></script>
 	
 	</div>

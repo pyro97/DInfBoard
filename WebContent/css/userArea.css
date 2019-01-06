@@ -1,1 +1,10 @@
 @charset "UTF-8";
+
+
+#div-userarea {
+  margin:5% 5%;
+  background-color:#005999;
+  color:#fff;
+  padding:1% 1%;
+  text-align:center;
+}

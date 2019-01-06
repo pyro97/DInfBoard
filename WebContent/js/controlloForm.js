@@ -3,7 +3,7 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
     
     var x= document.getElementById("username").value;
     console.log(x);
-        if(x==null || x.lenght<3)
+        if(!x || x.lenght<3)
         {
             alert("Inserire un username corretto.");
             return false;
@@ -17,7 +17,7 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
 
     x=document.getElementById("password").value;
     console.log(x);
-        if(x==null || x.lenght<6 || x.lenght>30)
+        if(!x|| x.lenght<6 || x.lenght>30)
         {
             alert("Inserire una password corretta. Almeno 6 caratteri.");
             return false;
