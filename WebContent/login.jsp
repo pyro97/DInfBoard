@@ -14,7 +14,7 @@
 
 	<div id="div-login">
 	
-		<form action="LoginServlet" method=get>
+		<form action="LoginServlet" method="post">
 		
 			<input type="text" id="username" name="username">
 			Inserisci Username

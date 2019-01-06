@@ -208,15 +208,16 @@ public class StudenteDao implements GenericDao<Studente,String> {
 	public ArrayList<Annuncio> getPartecipati(Studente s) {
 		
 		ArrayList<Annuncio> elenco = new ArrayList<Annuncio>();
-		String sql = "select * from (Studenti join Partecipazione on Username_Studente=Username) "
-				+ "join Annunci on ID_Annuncio=ID where Username=?";
+		String sql = "select * from ((Studenti join Partecipazione on Username_Studente=Username) "
+				+ "join Annunci on ID_Annuncio=ID) "
+				+ "join Preferenze on ID_Preferenza=Annunci.Preferenza where Username=?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1,s.getUsername());
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				
-				String username = rs.getString(s.getUsername());
+				String username = rs.getString("Username");
 				int ID = rs.getInt("ID");
 				String titolo = rs.getString("Titolo");
 				String descrizione = rs.getString("Descrizione");
@@ -239,15 +240,16 @@ public class StudenteDao implements GenericDao<Studente,String> {
 	public ArrayList<Annuncio> getOrganizzati(Studente s) {
 		
 		ArrayList<Annuncio> elenco = new ArrayList<Annuncio>();
-		String sql = "select * from (Studenti join Organizzazione on Username_Studente=Username) "
-				+ "join Annunci on ID_Annuncio=ID where Username=?";
+		String sql = "select * from ((Studenti join Partecipazione on Username_Studente=Username) "
+				+ "join Annunci on ID_Annuncio=ID) "
+				+ "join Preferenze on ID_Preferenza=Annunci.Preferenza where Username=?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setString(1,s.getUsername());
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				
-				String username = rs.getString(s.getUsername());
+				String username = rs.getString("Username");
 				int ID = rs.getInt("ID");
 				String titolo = rs.getString("Titolo");
 				String descrizione = rs.getString("Descrizione");

@@ -73,6 +73,9 @@ public class ManagerAnnuncio {
 		
 		AnnuncioDao dao = new AnnuncioDao();
 		boolean flag = dao.addPartecipante(s, a);
+		a.setPartecipanti(a.getPartecipanti()+1);
+		dao.update(a);
+		dao.close();
 		if(flag)
 			return true;
 		else

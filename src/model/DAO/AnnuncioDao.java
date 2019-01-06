@@ -152,8 +152,7 @@ public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 
 	
 	public boolean update(Annuncio a) {
-		String sql = "UPDATE Annunci SET ID=?, Titolo=? ,Descrizione=? ,Immagine=? ,Partecipanti=? "
-				+ ",ID_Organizzatore=?, isVisible=? WHERE ID=?";
+		String sql = "UPDATE Annunci SET ID=?, Titolo=? ,Descrizione=? ,Immagine=? ,Partecipanti=? ,isVisible=? WHERE ID=?";
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
 			ps.setInt(1, a.getID());
@@ -161,9 +160,8 @@ public class AnnuncioDao implements GenericDao<Annuncio,Integer> {
 			ps.setString(3, a.getDescrizione());
 			ps.setString(4, a.getPathImmagine());
 			ps.setInt(5, a.getPartecipanti());
-			ps.setString(6, a.getUsernameOrganizzatore());
-			ps.setBoolean(7, a.getIsVisible());
-			ps.setInt(8, a.getID());
+			ps.setBoolean(6, a.getIsVisible());
+			ps.setInt(7, a.getID());
 
 			
 			ps.execute();
