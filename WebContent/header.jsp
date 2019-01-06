@@ -27,11 +27,16 @@ Studente utente= (Studente) session.getAttribute("utente");
 
 	<div id="header_right">
 		<%if(auth==null || !auth || utente==null) {%>
-		
+				
 		<a href="login.jsp"><img src="img/header/user5.png"></a>
+							
+		
 		<%}else{ 
 			if(utente.isIsAdmin()){%>
-			<a href="adminArea.jsp"><img src="img/header/user5.png"></a>
+			<form action="adminArea.jsp">
+			<button id="adminAreaButton">Admin Area</button>
+			</form>	
+			<a href="userArea.jsp"><img src="img/header/user5.png"></a>
 				
 			
 			<% }else{%>
