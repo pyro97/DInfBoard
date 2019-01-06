@@ -91,6 +91,8 @@ if(auth==null || !auth || utente==null ) {
 					<img src="<%=annunci_partecipati.get(i).getPathImmagine()%>">
 					
 					<a href="annuncio.jsp?ID=<%=annunci_partecipati.get(i).getID()%>">Vai all'annuncio</a>
+					<a href="EliminaPartecipazioneServlet?ID=<%=annunci_partecipati.get(i).getID()%>">Elimina la tua partecipazione.</a>
+					
 					
 					</div> <%
 			}

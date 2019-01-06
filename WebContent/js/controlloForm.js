@@ -3,7 +3,7 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
     
     var x= document.getElementById("username").value;
     console.log(x);
-        if(!x || x.lenght<3)
+        if(x==null || x.lenght<3)
         {
             alert("Inserire un username corretto.");
             return false;
@@ -17,7 +17,7 @@ function cRegistrazioneForm () //Controllo del form relativo alla registrazione.
 
     x=document.getElementById("password").value;
     console.log(x);
-        if(!x|| x.lenght<6 || x.lenght>30)
+        if(x==null || x.lenght<6 || x.lenght>30)
         {
             alert("Inserire una password corretta. Almeno 6 caratteri.");
             return false;
@@ -148,9 +148,16 @@ function cPreferenzeForm () //Controllo del form relativo all'inserimento di una
             alert("Inserire una preferenza corretta.");
             return false;
         }
-
+    
+    x=document.getElementById("id").value;
+        if(x==null)
+        {
+            alert("Inserire un ID corretto.");
+            return false;
+        }
     return true;
 }
+
 
 function cRicercaForm() //Controllo del form relativo alla ricerca di un annuncio nella sezione bacheca.
 {
@@ -170,3 +177,24 @@ function cRicercaForm() //Controllo del form relativo alla ricerca di un annunci
 
         return true;
 }
+
+function cEmailForm() //Controllo form relativo al recupero password.
+{
+    var x= document.getElementById("email").value;
+    console.log(x);
+    if(x==null || x.lenght<10)
+    {
+        alert("Inserire una mail corretta.");
+        return false;
+    }
+/*  ---DA PROVARE PER CONTROLLO SINTASSI EMAIL---
+     var filtro = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
+        if (!filtro.test(x.email.value)) 
+        {
+        alert("Inserire una mail corretta.");
+        return false;
+    } */ 
+
+    return true;
+}
+

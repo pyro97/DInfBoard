@@ -14,15 +14,16 @@
 
 	<div id="div-login">
 	
-		<form action="LoginServlet" method="post">
+		<form id="loginForm" action="LoginServlet" method="post">
 		
 			<input type="text" id="username" name="username">
 			Inserisci Username
 			<input type="password" id="password" name="password">
 			Inserisci Password
-			<button id="submit">Accedi</button>
 			
 		</form>
+		
+		<button onclick="loginHandler()">Accedi</button>
 		
 	<script>
 	function loginHandler()
@@ -30,6 +31,7 @@
 		var x= cLoginForm();
 			if(x)
 			{
+				document.getElementById("loginForm").submit();
 				console.log("Login ok.");	
 			}
 	}
