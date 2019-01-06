@@ -66,8 +66,10 @@ if(auth==null || !auth || utente==null ) {
 					}
 					
 					%>
-					 <a href="EliminaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Elimina Annuncio</a>
-										
+					<a href="EliminaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Inizia</a>
+					
+           	        <a href="CancellaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Cancella Annuncio</a>
+					
 					</div> <%
 			}
 		}
