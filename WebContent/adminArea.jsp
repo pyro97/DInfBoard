@@ -27,7 +27,7 @@ if(auth==null || !auth || utente==null ) {
     <h2>Area Admin</h2>  
     <ul id="myMenu">
       <li><a href="inserireAdmin.jsp">Inserisci Admin</a></li>
-      <li><a href="rimuoviadmin.jsp">Rimuovi Admin</a></li>
+      <li><a href="rimuoviAdmin.jsp">Rimuovi Admin</a></li>
       <li><a href="sospendiUtente.jsp">Sospendi Utente</a></li>
       <li><a href="gestionePreferenze.jsp">Aggiorna Preferenze</a></li>
       <li><a href="LogoutServlet">Logout</a></li>
@@ -35,12 +35,15 @@ if(auth==null || !auth || utente==null ) {
   </div>
   
   <div class="right" style="background-color:#005999;">
-    <h1 class="titolo">Profilo Admin</h1>
- 	<h3>Nome: </h3> <p>cognome </p> 
- 	<h3>Cognome: </h3> <p>cognome </p> 
- 	<h3>E-mail: </h3> <p>cognome </p> 
- 	<h3>Username: </h3> <p>cognome </p> 
- 	 <h3>Password: </h3> <p>cognome </p> 
+    <h1 class="titolo">Area Admin</h1>
+    <h2>Ciao <%=utente.getNome()%>,benvenuto nell'Area Admin.</h2>
+ 	    
+ 	
+ 	<h3>Nome: </h3> <p><%=utente.getNome() %> </p> 
+ 	<h3>Cognome: </h3> <p><%=utente.getCognome() %> </p> 
+ 	<h3>E-mail: </h3> <p><%=utente.getEmail() %> </p> 
+ 	<h3>Username: </h3> <p><%=utente.getUsername() %> </p> 
+ 	 <h3>Password: </h3> <p><%=utente.getPassword() %> </p> 
  	
  	
  	

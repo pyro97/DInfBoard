@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/registrazione.css">
 </head>
 <body>
+
 <%@include file="header.jsp"%>
 
 	<div id="div-registrazione">
@@ -50,17 +51,17 @@
 	
 	<script>
 	
-	function registrazioneHandler()
-	{
-		var x= cRegistrazioneForm();
-			if(x)
-			{
-				console.log(x);
-				document.getElementById("registrazioneForm").submit();
-			}
+	function registrazioneHandler() {
+		//var x = cRegistrazioneForm();
+		//if(x) {
+			document.getElementById("registrazioneForm").submit(); 
+		//	console.log("Sono qui");
+		//}
+			
 	}
+	
 	</script>
-
+	
 	<script src="js/controlloForm.js"></script>
 	
 	</div>

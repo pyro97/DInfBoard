@@ -1,0 +1,92 @@
+@charset "UTF-8";
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Create a column layout with Flexbox */
+.row {
+  padding-bottom:20%;
+  padding-top:5%;
+}
+
+
+
+
+/* Right column (page content) */
+.right {
+	margin-left:30%;
+			color:white;
+	  padding: 15px;
+  margin-right:30%;
+  padding-bottom:15%;
+}
+
+.right h3{
+	
+	float:left;
+	width:36%;
+	margin-right:1%;	
+	padding:2%;	
+}
+.right h2{
+	text-align:center;
+}
+.right p{
+	padding:2%;
+}
+
+
+.titolo{
+	font-size:36px;
+	text-align:center;
+	margin-bottom:10%;
+}
+
+
+#deleteProf{
+ display: inline-block;
+ margin-top:10%;
+    color:#fff;
+    margin-left:36%;
+  text-decoration: none;
+  padding:1% 5px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 3px;
+  border-color:#99210e;
+  background-color: #99210e;
+  color:#fff;
+  transition-duration: 0.4s;
+	}
+	
+	#updateProf{
+	display: inline-block;
+ margin-top:10%;
+  margin-left:36%;;
+    color:#fff;
+  text-decoration: none;
+  padding:1% 5px;
+  border-radius: 10px;
+  border-style: outset;
+  border-width: 3px;
+  border-color:#269923;
+  background-color: #269923;
+  color:#fff;
+  transition-duration: 0.4s;
+	
+	
+	}
+	
+	#deleteProf:hover {
+  color: #99210e;
+  background-color: #fff;
+}
+	#updateProf:hover {
+  color: #269923;
+  background-color: #fff;
+}
+
+
+

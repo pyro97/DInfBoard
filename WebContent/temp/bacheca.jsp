@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList, model.PJO.Annuncio"%>
 <!DOCTYPE html>
@@ -15,7 +14,9 @@
 <div id="bachecaDiv">
 Qui si stampa tutta la bacheca di DinfBoard
 <%
+
 ArrayList<Annuncio> bacheca = (ArrayList<Annuncio>) application.getAttribute("bacheca");
+
 if(bacheca==null)
 	response.sendRedirect("error.jsp");
 else if(bacheca.size()==0) {
@@ -25,21 +26,21 @@ else if(bacheca.size()==0) {
 	
 	<%
 }
+
 else {
 	for(int i=0;i<bacheca.size();i++) {
 		
-		if(bacheca.get(i).getIsVisible()) {
-			
 		%> <div class="class_annunci">
 				<%=bacheca.get(i).getTitolo() %> -- <%=bacheca.get(i).getDescrizione() %> <br> 
 				<img src="<%=bacheca.get(i).getPathImmagine()%>"> <br> 
 				<a href="annuncio.jsp?ID=<%=bacheca.get(i).getID()%>">Vai all'annuncio</a>
 			</div>
 			
-			<% }
+			<%
 		
 	}
 }
+
 %>
 
 </div>

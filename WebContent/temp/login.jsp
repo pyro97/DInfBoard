@@ -16,26 +16,13 @@
 	
 		<form action="LoginServlet" method=get>
 		
-			<input type="text" id="username" name="username">
+			<input type="text" name="username">
 			Inserisci Username
-			<input type="password" id="password" name="password">
+			<input type="password" name="password">
 			Inserisci Password
 			<button id="submit">Accedi</button>
 			
 		</form>
-		
-	<script>
-	function loginHandler()
-	{
-		var x= cLoginForm();
-			if(x)
-			{
-				console.log("Login ok.");	
-			}
-	}
-	</script>
-	<script src="js/controlloForm.js"></script>
-	
 	
 	Non sei ancora registrato?
 	Provvedi subito <a href="registrazione.jsp">Registrati!</a>

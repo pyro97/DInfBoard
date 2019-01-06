@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+#div-home {
+  text-align:center;
+  background-color:#005999;
+  color:#fff;
+  font-family:Sans-Serif;
+  margin:5% 5%;
+  padding:10% 10%;
+}

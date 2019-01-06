@@ -1,17 +1,3 @@
-function openSearchBar() {
-    var s=document.getElementById("search-toolbar");
-    s.style.display="block";
-}
-
-function closeSearchBar() {
-    var s=document.getElementById("search-toolbar");
-    s.style.display="none";
-}
-
-function submitta() {
-	document.getElementById("submitQuery").click();
-}
-
 function fillface(obj) {
     obj.src="img/footer/social/facebook-color.png";
 }

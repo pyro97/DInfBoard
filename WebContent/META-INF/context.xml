@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context allowCasualMultipartParsing="true">
+
+	<Resource name="jdbc/dinfboard"
+	auth="Container"
+	driverClassName="org.mysql.jdbc.Driver"
+	type="javax.sql.DataSource"
+	username="root"
+	password="ciao1234"
+	url="jdbc:mysql://127.0.0.1:3306/dinfboard" /> 
+</Context>
