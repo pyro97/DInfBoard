@@ -45,14 +45,7 @@ if(auth==null || !auth || utente==null ) {
 		<form action="InserisciAmministratoreServlet" method=get>
 				<p> Username</p>
 			<input type="text" id="username" name="username" placeholder="Inserisci.."><br>
-			<p> E-mail</p>
-			<input type="email" id="email" name="email" placeholder="Inserisci.."><br>
-			<p> Password</p>
-			<input type="password" id="password" name="password" placeholder="Inserisci.."><br>
-			<p> Nome</p>
-			<input type="text" id="nome" name ="nome" placeholder="Inserisci.."><br>
-			<p> Cognome</p>
-			<input type="text" id="cognome" name="cognome" placeholder="Inserisci.."><br>
+			
 			
 			<button id="submitAddAdmin">Aggiungi</button>
 			
