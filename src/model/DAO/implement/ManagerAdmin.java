@@ -1,9 +1,9 @@
 package model.DAO.implement;
 
 import model.DAO.AdminDao;
+
 import model.DAO.AnnuncioDao;
 import model.DAO.StudenteDao;
-import model.PJO.Admin;
 import model.PJO.Annuncio;
 import model.PJO.PasswordUtils;
 import model.PJO.Studente;
@@ -13,7 +13,8 @@ public class ManagerAdmin {
 	public static boolean inserisciAdmin(Studente a) {
 		
 			AdminDao dao = new AdminDao();
-			if(dao.add(a)) {
+			a.setIsAdmin(true);
+			if(dao.update(a)) {
 				dao.close();
 				return true;
 			}
@@ -59,5 +60,14 @@ public class ManagerAdmin {
 		}
 		else 
 			return false;
+	}
+	
+	public static Studente getAdmin(String username) {
+	
+			AdminDao dao = new AdminDao();
+			Studente s = dao.get(username);
+			return s;
+
+		
 	}
 }

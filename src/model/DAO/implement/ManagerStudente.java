@@ -45,6 +45,13 @@ public class ManagerStudente {
 		}
 	}
 	
+	public static Studente getStudente(String username) {
+		StudenteDao dao = new StudenteDao();
+		Studente s = dao.get(username);
+		return s;
+
+	}
+	
 	public static boolean modificaProfilo(Studente s) {
 		StudenteDao dao = new StudenteDao();
 		if(dao.update(s))	return true;
