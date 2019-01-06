@@ -35,9 +35,7 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("auth", true);
 			request.getSession().setAttribute("username", username);
 			request.getSession().setAttribute("utente", s);
-			if(s.isIsAdmin()) 
-				 dispatcher = request.getRequestDispatcher("adminArea.jsp");
-			else 	dispatcher = request.getRequestDispatcher("userArea.jsp");
+				 dispatcher = request.getRequestDispatcher("bacheca.jsp");
 
 			dispatcher.forward(request, response);
 		}
