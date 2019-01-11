@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+    pageEncoding="UTF-8" import="model.PJO.Studente"%>
+    
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="css/header.css"/>
 </head>
@@ -22,13 +22,9 @@
 	</div>
 
 	<div id="header_right">
-		<a href="userArea.jsp"><img src="img/header/user4.svg"></a>
-		<%
-		Boolean authForName=(Boolean) session.getAttribute("auth");
-		if(authForName!=null && authForName) {
-			session.getAttribute("username");
-		}
-		%>
+				
+		<a href="userArea.jsp"><img src="img/header/user5.png"></a>
+		
 	</div>
 
 </header>

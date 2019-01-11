@@ -1,1 +1,30 @@
 @charset "UTF-8";
+
+
+#div-userarea {
+  height:400px;
+  margin:5% 5%;
+  background-color:#005999;
+  color:#fff;
+  padding:1% 1%;
+  text-align:center;
+}
+
+#div-userarea img {
+  width: 100px;
+}
+
+#annunci-organizzati {
+  width: 50%;
+  float:left;
+  
+}
+
+#annunci-partecipati {
+  width: 50%;
+  float:left;
+}
+
+.annuncio {
+  
+}

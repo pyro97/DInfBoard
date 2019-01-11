@@ -7,34 +7,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class EliminaPartecipazioneServlet
- */
+import model.DAO.AnnuncioDao;
+import model.DAO.StudenteDao;
+import model.PJO.Annuncio;
+import model.PJO.Studente;
+
 @WebServlet("/EliminaPartecipazioneServlet")
 public class EliminaPartecipazioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public EliminaPartecipazioneServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		int id_annuncio = Integer.parseInt(request.getParameter("ID"));
+		String username = (String) request.getSession().getAttribute("username");
+		
+		AnnuncioDao adao = new AnnuncioDao();
+		StudenteDao sdao= new StudenteDao();
+		
+		Annuncio a = adao.get(id_annuncio);
+		Studente s = sdao.get(username);
+		
+		adao.removePartecipazione(s,a);
+		
+		a.setPartecipanti((a.getPartecipanti()-1));
+		adao.update(a);
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

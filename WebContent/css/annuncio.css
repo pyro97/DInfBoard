@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+#annuncioDiv {
+  text-align:center;
+  margin:2% 2%;
+  background-color:#005999;
+  color:#fff;
+  padding:1% 1%;
+}
+
+#annuncioDiv img {
+  width: 20%;
+}

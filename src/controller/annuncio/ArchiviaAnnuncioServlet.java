@@ -1,40 +1,62 @@
 package controller.annuncio;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ArchiviaAnnuncioServlet
- */
+import model.DAO.AnnuncioDao;
+import model.PJO.Annuncio;
+import model.PJO.Sender;
+import model.PJO.Studente;
+import model.DAO.implement.*;
+
 @WebServlet("/ArchiviaAnnuncioServlet")
 public class ArchiviaAnnuncioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public ArchiviaAnnuncioServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		int id = Integer.parseInt(request.getParameter("ID"));
+		AnnuncioDao dao = new AnnuncioDao();
+		Annuncio a = dao.get(id);
+		ManagerAnnuncio.annuncioNonVisibile(a);
+		
+		ArrayList<Studente> elenco = dao.getPartecipanti(a);
+		Sender sender = new Sender();
+		String subject = "Corso iniziato !";
+		String message = "Stai ricevendo questa mail perchè il corso " + a.getTitolo() + " è appena cominciato. Lo staff ti augura buon lavoro !";
+		try {
+			for(int i=0;i<elenco.size();i++) {
+				sender.sendPlainTextEmail(elenco.get(i).getEmail(), subject, message);
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		ServletContext ctx = getServletContext();
+		
+		ArrayList<Annuncio> bacheca = ManagerAnnuncio.ottieniBacheca();
+		if(bacheca==null)
+			response.sendRedirect("error.jsp");
+		else {
+			ctx.setAttribute("bacheca", bacheca);
+		}
+		response.sendRedirect("userArea.jsp");
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

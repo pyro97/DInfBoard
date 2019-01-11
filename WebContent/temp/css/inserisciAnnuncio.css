@@ -1,0 +1,14 @@
+body {
+  font-family: Sans-Serif;
+}
+
+#inserisciAnnuncioDiv {
+  margin:5% 5%;
+  padding:5% 5%;
+  color:#fff;
+  background-color: #005999;
+}
+
+#inserisciAnnuncioDiv input {
+  width: 100%;
+}

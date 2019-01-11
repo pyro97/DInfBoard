@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context allowCasualMultipartParsing="true">
+
+	<Resource name="jdbc/dinfboard"
+	auth="Container"
+	driverClassName="org.mariadb.jdbc.Driver"
+	type="javax.sql.DataSource"
+	username="antonio"
+	password="ueth-ylde"
+	url="jdbc:mysql://localhost:3306/dinfboard" /> 
+</Context>
