@@ -55,7 +55,7 @@ if(auth==null || !auth) {
 		<div id="annunci-organizzati">
 		<h2>Annunci Organizzati</h2>
 		<%
-		if(annunci_organizzati.size()==0) {
+		if(annunci_organizzati==null || annunci_organizzati.size()==0) {
 			%> <h2>Non hai ancora inserito nessun annuncio sulla piattaforma </h2> <%
 		}
 		
@@ -89,7 +89,7 @@ if(auth==null || !auth) {
 		<div id="annunci-partecipati">
 		<h2>Annunci a cui stai partecipando</h2>
 		<%
-		if(annunci_partecipati.size()==0) {
+		if(annunci_partecipati==null || annunci_partecipati.size()==0) {
 			%> <h2>Non hai ancora partecipato a nessun annuncio sulla piattaforma </h2> <%
 		}
 		else {
