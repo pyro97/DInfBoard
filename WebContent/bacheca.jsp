@@ -12,7 +12,6 @@
 <%@ include file="header.jsp" %>
 
 <div id="bachecaDiv">
-Qui si stampa tutta la bacheca di DinfBoard
 <%
 
 ArrayList<Annuncio> bacheca = (ArrayList<Annuncio>) application.getAttribute("bacheca");
@@ -31,23 +30,25 @@ else {
 	for(int i=0;i<bacheca.size();i++) {
 		
 		if(bacheca.get(i).getIsVisible()) {
-			
-		%> <div class="class_annunci">
-				<%=bacheca.get(i).getTitolo() %> -- <%=bacheca.get(i).getDescrizione() %> <br> 
+			int width=100/bacheca.size();
+			width=width-(2*bacheca.size());
+		%> <div class="class_annunci" style="width : <%=width%>%">
+				<%=bacheca.get(i).getTitolo() %><br> 
 				<img src="<%=bacheca.get(i).getPathImmagine()%>"> <br> 
 				<a href="annuncio.jsp?ID=<%=bacheca.get(i).getID()%>">Vai all'annuncio</a>
 			</div>
 			
 			<% }
 		
+		}
 	}
-}
 
-%>
+	%>
 
-</div>
+	</div>
+
+</body>
 
 <%@ include file="footer.jsp" %>
 
-</body>
 </html>

@@ -30,14 +30,13 @@ public class EliminaAnnuncioServlet extends HttpServlet {
 		AnnuncioDao dao = new AnnuncioDao();
 		Annuncio a = dao.get(id);
 		ArrayList<Studente> elenco = dao.getPartecipanti(a);
-		Sender sender = new Sender();
 		String subject = "Valutazione Utente";
 		String message = "Stai ricevendo questa mail perchè il corso " + a.getTitolo() + " è terminato, provvedi dunque ad effettuare"
 				+ "una valutazione dello studente organizzatore, vai alla pagina della valutazione seguendo questo link : "
 				+ "http://localhost:8080/DInfBoard/valutazione.jsp?username="+a.getUsernameOrganizzatore();
 		try {
 			for(int i=0;i<elenco.size();i++) {
-				sender.sendPlainTextEmail(elenco.get(i).getEmail(), subject, message);
+				Sender.sendPlainTextEmail(elenco.get(i).getEmail(), subject, message);
 			}
 		}
 		catch(Exception e) {

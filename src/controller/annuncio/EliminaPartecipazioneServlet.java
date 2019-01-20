@@ -35,6 +35,7 @@ public class EliminaPartecipazioneServlet extends HttpServlet {
 		
 		a.setPartecipanti((a.getPartecipanti()-1));
 		adao.update(a);
+		response.sendRedirect("userArea.jsp");
 		
 	}
 

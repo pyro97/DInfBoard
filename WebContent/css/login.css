@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 #div-login {
+  border-radius:30px;
   margin:5% 5%;
   font-family:Sans-Serif;
   text-align:center;

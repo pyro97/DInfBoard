@@ -36,11 +36,7 @@ if(auth==null || !auth) {
 		
 		<br>
 		
-		<a href="modificaProfilo.jsp?username=<%=session.getAttribute("username")%>">Clicca qui per modificare il tuo profilo</a>
-		
-		<form action = "LogoutServlet" method="post">
-			<button id="logout-button">Logout</button>
-		</form>
+		<h3 id="mod_profilo"><a href="modificaProfilo.jsp?username=<%=session.getAttribute("username")%>">Clicca qui per modificare il tuo profilo</a></h3>
 		
 		<%
 		StudenteDao dao = new StudenteDao();
@@ -53,9 +49,9 @@ if(auth==null || !auth) {
 		%>
 		
 		<div id="annunci-organizzati">
-		<h2>Annunci Organizzati</h2>
+		<h2 class=h2-elenco>Elenco Annunci Organizzati</h2>
 		<%
-		if(annunci_organizzati.size()==0) {
+		if(annunci_organizzati==null || annunci_organizzati.size()==0) {
 			%> <h2>Non hai ancora inserito nessun annuncio sulla piattaforma </h2> <%
 		}
 		
@@ -64,20 +60,20 @@ if(auth==null || !auth) {
 				%> <div class="annuncio">
 					
 					<%=annunci_organizzati.get(i).getTitolo()%>
-					<img src="<%=annunci_organizzati.get(i).getPathImmagine()%>">
+					<img src="<%=annunci_organizzati.get(i).getPathImmagine()%>"> <br>
 					
 					<%
 					if(!annunci_organizzati.get(i).getIsVisible()) {
 						%> <h3>(Archiviato)</h3> <%
 					}
 					else {
-						%> <a href="ArchiviaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Archivia Annuncio</a> <%
+						%> <a href="ArchiviaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Archivia Annuncio</a> <br><%
 					}
 					
 					%>
-					<a href="EliminaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Inizia</a>
+					<a href="EliminaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Termina</a> <br>
 					
-           	        <a href="CancellaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Cancella Annuncio</a>
+           	        <a href="CancellaAnnuncioServlet?ID=<%=annunci_organizzati.get(i).getID()%>">Cancella Annuncio</a> <br>
 					
 					</div> <%
 			}
@@ -87,9 +83,9 @@ if(auth==null || !auth) {
 		</div>
 		
 		<div id="annunci-partecipati">
-		<h2>Annunci a cui stai partecipando</h2>
+		<h2 class=h2-elenco>Elenco Annunci a cui stai partecipando</h2>
 		<%
-		if(annunci_partecipati.size()==0) {
+		if(annunci_partecipati==null || annunci_partecipati.size()==0) {
 			%> <h2>Non hai ancora partecipato a nessun annuncio sulla piattaforma </h2> <%
 		}
 		else {
@@ -97,20 +93,27 @@ if(auth==null || !auth) {
 				%> <div class="annuncio">
 					
 					<%=annunci_partecipati.get(i).getTitolo()%>
-					<img src="<%=annunci_partecipati.get(i).getPathImmagine()%>">
+					<img src="<%=annunci_partecipati.get(i).getPathImmagine()%>"> <br>
 					
-					<a href="annuncio.jsp?ID=<%=annunci_partecipati.get(i).getID()%>">Vai all'annuncio</a>
-					<a href="EliminaPartecipazioneServlet?ID=<%=annunci_partecipati.get(i).getID()%>">Elimina la tua partecipazione.</a>
+					<a href="annuncio.jsp?ID=<%=annunci_partecipati.get(i).getID()%>">Vai all'annuncio</a> <br>
+					<a href="EliminaPartecipazioneServlet?ID=<%=annunci_partecipati.get(i).getID()%>">Elimina la tua partecipazione.</a> <br>
 					
 					</div> <%
 			}
 		}
 		%>
 		
+		
+		
 		</div>
+	
+		<form id="logout-form" action = "LogoutServlet" method="post">
+		<button id="logout-button">Logout</button>
+		</form>
 		
 	</div>
-
+	
+	
 <%@include file="footer.jsp"%>
 
 </body>

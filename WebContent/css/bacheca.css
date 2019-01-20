@@ -1,18 +1,31 @@
 
 #bachecaDiv {
+	border-color:black;
+	height: 480px;
+	border-radius: 30px;
 	margin:3% 3%;
 	font-family: Sans-Serif;
-	background-color: #005999;
 	color:#fff;
+	background-color: aquamarine;
 	text-align: center;
-	padding:1% 1%;
 }
 
 #bachecaDiv .class_annunci {
-	padding:2% 2%;
+	background-color: #005999;
+	font-size: 80%;
+	border-radius: 30px;
+	float:left;
 	text-align: center;
+	margin:1%;
+}
+
+#bachecaDiv a {
+	font-size: 80%;
+	text-decoration: none;
+	font-style:oblique;
+	color: aquamarine;
 }
 
 #bachecaDiv .class_annunci img {
-	width:20%;
+	width:40%;
 }

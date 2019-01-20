@@ -13,8 +13,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Sender {
-
-	public void sendPlainTextEmail(String toAddress , String subject , String message) throws AddressException, MessagingException {
+	
+	public static void sendPlainTextEmail(String toAddress , String subject , String message) throws AddressException, MessagingException {
 		
 		String username="assistenza-dinfboard@outlook.com";
 		String password="meek-0688-fesb";

@@ -31,6 +31,7 @@
 			<%
 			ArrayList<Preferenza> elencoPreferenza;
 			elencoPreferenza = ManagerPreferenza.getElencoPreferenze();
+			System.out.println(elencoPreferenza);
 			%>
 			
 			<select name="preferenza">

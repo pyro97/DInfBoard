@@ -33,10 +33,11 @@ public class PartecipazioneServlet extends HttpServlet {
 		sdao.close();
 		boolean flag = ManagerAnnuncio.aggiungiPartecipazione(s, a);
 		if(flag) {
-			response.sendRedirect("success.jsp");
+			response.sendRedirect("userArea.jsp");
 		}
 		else {
-			response.sendRedirect("error.jsp");
+			request.getSession().setAttribute("notPartecipate", true);
+			response.sendRedirect("annuncio.jsp?ID="+id_annuncio);
 		}
 	}
 

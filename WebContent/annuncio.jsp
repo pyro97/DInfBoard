@@ -31,9 +31,16 @@ dao.close();
 		<h2>Descrizione</h2> <%=a.getDescrizione()%> <br>
 		<h2>Numero Partecipanti</h2> <%=a.getPartecipanti()%> <br>
 		<h2>Categoria</h2> <%=a.getPreferenza() %>
-		<h2>Organizzatore</h2> <a href="user.jsp?username=<%=a.getUsernameOrganizzatore() %>"><%=a.getUsernameOrganizzatore()%></a>
+		<h2>Organizzatore</h2> <a href="user.jsp?username=<%=a.getUsernameOrganizzatore() %>"><%=a.getUsernameOrganizzatore()%></a><br>
 		
 		<a href="PartecipazioneServlet?ID_Annuncio=<%=a.getID()%>"><button>Partecipa</button></a>
+		
+		<%
+		Boolean notPartecipate = (Boolean) session.getAttribute("notPartecipate");
+		if(notPartecipate!=null && notPartecipate)
+			%> Partecipazione all'annuncio non aggiunta.. Riprova. <%
+		session.removeAttribute("notPartecipate");
+		%>
 		
 	</div>
 

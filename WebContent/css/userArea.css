@@ -2,29 +2,60 @@
 
 
 #div-userarea {
-  height:400px;
-  margin:5% 5%;
+  border-radius:30px;
+  font-family: Sans-Serif;
+  height:900px;
+  margin:5%;
   background-color:#005999;
   color:#fff;
   padding:1% 1%;
   text-align:center;
 }
 
+#mod_profilo a {
+  font-size: 50%;
+  text-decoration: none;
+  color:aquamarine;
+}
+
+.h2-elenco {
+  font-weight: 200;
+  margin: 10%;
+  color: aquamarine;
+}
+
 #div-userarea img {
-  width: 100px;
+  width: 80px;
 }
 
 #annunci-organizzati {
-  width: 50%;
-  float:left;
-  
+  width: 45%;
+  padding: 3%;
+  float:left; 
+}
+
+#annunci-organizzati a {
+  text-decoration: none;
+  color: aquamarine;
 }
 
 #annunci-partecipati {
-  width: 50%;
+  width: 45%;
+  padding: 2%;
   float:left;
 }
 
+#annunci-partecipati a {
+  text-decoration: none;
+  color: aquamarine;
+  margin:%;
+}
+
+
 .annuncio {
-  
+  margin: 5%;
+}
+
+#logout-form {
+  margin: 40%;
 }

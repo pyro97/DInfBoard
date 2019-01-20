@@ -32,12 +32,11 @@ public class ArchiviaAnnuncioServlet extends HttpServlet {
 		ManagerAnnuncio.annuncioNonVisibile(a);
 		
 		ArrayList<Studente> elenco = dao.getPartecipanti(a);
-		Sender sender = new Sender();
 		String subject = "Corso iniziato !";
 		String message = "Stai ricevendo questa mail perchè il corso " + a.getTitolo() + " è appena cominciato. Lo staff ti augura buon lavoro !";
 		try {
 			for(int i=0;i<elenco.size();i++) {
-				sender.sendPlainTextEmail(elenco.get(i).getEmail(), subject, message);
+				Sender.sendPlainTextEmail(elenco.get(i).getEmail(), subject, message);
 			}
 		}
 		catch(Exception e) {

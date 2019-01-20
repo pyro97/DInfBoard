@@ -3,6 +3,7 @@ body {
 }
 
 #inserisciAnnuncioDiv {
+  border-radius:30px;
   margin:5% 5%;
   padding:5% 5%;
   color:#fff;
@@ -11,4 +12,5 @@ body {
 
 #inserisciAnnuncioDiv input {
   width: 100%;
+  margin:0% 0% 5% 0%;
 }

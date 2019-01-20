@@ -1,9 +1,15 @@
 @charset "UTF-8";
 
 #userDiv {
+  font-family:Sans-Serif;
+  border-radius:30px;
   margin:2% 2%;
   padding:2% 2%;
   background-color: #005999;
   color:#fff;
   text-align: center;
+}
+
+#userDiv h2 {
+  font-style: italic;
 }
