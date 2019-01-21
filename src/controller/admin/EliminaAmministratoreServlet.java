@@ -1,7 +1,6 @@
 package controller.admin;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,14 +14,15 @@ import model.PJO.Studente;
 
 @WebServlet("/EliminaAmministratoreServlet")
 public class EliminaAmministratoreServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
        
-    public EliminaAmministratoreServlet() {
-        super();
-    }
+  public EliminaAmministratoreServlet() {
+    super();
+  }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("usernameAdmin");
+  protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+      throws ServletException, IOException {
+    String username = request.getParameter("usernameAdmin");
 		Studente s=ManagerStudente.getStudente(username);
 		s.setIsAdmin(false);
 		

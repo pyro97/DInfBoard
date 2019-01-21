@@ -16,7 +16,6 @@ import model.PJO.Studente;
 
 class JUnitTestManagerAdmin {
 	
-	
 	@BeforeClass
 	  public static void initClass() {
 	    System.out.println("initClass()");
