@@ -20,7 +20,7 @@ public class SospendiUtenteServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("usernameUtente");
+		String username = request.getParameter("username");
 		if(ManagerAdmin.sospendiUtente(username)) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("adminArea.jsp");
 			dispatcher.forward(request, response);

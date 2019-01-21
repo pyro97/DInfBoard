@@ -13,7 +13,7 @@ public class ManagerAdmin {
 	public static boolean inserisciAdmin(Studente a) {
 		
 			AdminDao dao = new AdminDao();
-			if(dao.add(a)) {
+			if(dao.update(a)) {
 				dao.close();	
 				return true;
 			}
@@ -21,11 +21,11 @@ public class ManagerAdmin {
 				return false;
 		
 	}
-	public static boolean eliminaAdmin(String a) {
+	public static boolean eliminaAdmin(Studente a) {
 		
 		
 			AdminDao dao = new AdminDao();
-			if(dao.remove(a)) {
+			if(dao.update(a)) {
 				dao.close();
 				return true;
 			}
@@ -40,7 +40,8 @@ public class ManagerAdmin {
 			StudenteDao sdao=new StudenteDao();
 			Studente s=sdao.get(a);
 			if(s!=null) {
-				s.setIsSospeso(true);
+				if(s.isIsSospeso())	s.setIsSospeso(false);
+				else	s.setIsSospeso(true);
 				if(sdao.update(s)) {
 					sdao.close();
 					return true;

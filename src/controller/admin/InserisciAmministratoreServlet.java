@@ -24,6 +24,7 @@ public class InserisciAmministratoreServlet extends HttpServlet {
 		
 		String username = request.getParameter("username");
 		Studente admin = ManagerStudente.getStudente(username);
+		admin.setIsAdmin(true);
 		if(admin!=null) {
 			if(ManagerAdmin.inserisciAdmin(admin)) {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("adminArea.jsp");

@@ -12,6 +12,19 @@
 
 <%@include file="header.jsp"%>
 
+<%
+Boolean notlogged = (Boolean) session.getAttribute("not-logged");
+Boolean sospeso = (Boolean) session.getAttribute("sospeso");
+
+if(notlogged!=null && notlogged) {
+	%> <h2>Hai inserito delle credenziali errate</h2> <%
+	session.removeAttribute("not-logged");
+}else if(sospeso!=null && sospeso){
+	%> <h2>Il tuo account è stato sospeso</h2> <%
+	session.removeAttribute("sospeso");
+}
+%>
+
 	<div id="div-login">
 	
 		<form action="LoginServlet" id="loginForm" method="post">
@@ -49,13 +62,7 @@
 	
 	</div>
 
-<%
-Boolean notlogged = (Boolean) session.getAttribute("not-logged");
-if(notlogged!=null && notlogged) {
-	%> <h2>Hai inserito delle credenziali errate</h2> <%
-	session.removeAttribute("not-logged");
-}
-%>
+
 
 <%@include file="footer.jsp"%>
 

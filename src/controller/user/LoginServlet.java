@@ -31,6 +31,10 @@ public class LoginServlet extends HttpServlet {
 			request.getSession().setAttribute("not-logged",true);
 			response.sendRedirect("login.jsp");
 		}
+		else if(s.isIsSospeso()) {
+			request.getSession().setAttribute("sospeso",true);
+			response.sendRedirect("login.jsp");
+		}
 		else {
 			request.getSession().setAttribute("auth", true);
 			request.getSession().setAttribute("username", username);

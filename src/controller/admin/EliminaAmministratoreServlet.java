@@ -23,7 +23,10 @@ public class EliminaAmministratoreServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("usernameAdmin");
-		if(ManagerAdmin.eliminaAdmin(username)) {
+		Studente s=ManagerStudente.getStudente(username);
+		s.setIsAdmin(false);
+		
+		if(ManagerAdmin.eliminaAdmin(s)) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("adminArea.jsp");
 			dispatcher.forward(request, response);
 		}else {

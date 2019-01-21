@@ -41,6 +41,7 @@ if(auth==null || !auth || !s.isIsAdmin()) {
     
 	
 		<div id="div-banna">
+		<p> Inserisci Username per sospendere o riaggiungere un utente</p>
 	
 		<form action="SospendiUtenteServlet" method=get>
 					<p>Username</p>

@@ -24,6 +24,7 @@ if(auth==null || !auth) {
 	<div id="div-userarea">
 	
 		Benvenuto nell'area utente di <%=session.getAttribute("username") %>
+	
 		<br>
 		
 		

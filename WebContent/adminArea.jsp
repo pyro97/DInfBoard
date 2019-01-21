@@ -17,7 +17,7 @@
 Boolean auth = (Boolean) session.getAttribute("auth");
 Studente s = (Studente) session.getAttribute("utente");
 
-if(auth==null || !auth || !s.isIsAdmin()) {
+if(auth==null || !auth || s==null || !s.isIsAdmin()) {
 	response.sendRedirect("restricted.jsp");
 }
 
@@ -37,11 +37,10 @@ if(auth==null || !auth || !s.isIsAdmin()) {
   
   <div class="right" style="background-color:#005999;">
     <h1 class="titolo">Profilo Admin</h1>
- 	<h3>Nome: </h3> <p>cognome </p> 
- 	<h3>Cognome: </h3> <p>cognome </p> 
- 	<h3>E-mail: </h3> <p>cognome </p> 
- 	<h3>Username: </h3> <p>cognome </p> 
- 	 <h3>Password: </h3> <p>cognome </p> 
+ 	<h3>Nome: </h3> <p><%=s.getNome() %> </p> 
+ 	<h3>Cognome: </h3> <p><%=s.getCognome() %>  </p> 
+ 	<h3>E-mail: </h3> <p><%=s.getEmail() %>  </p> 
+ 	<h3>Username: </h3> <p><%=s.getUsername() %>  </p> 
  	
  	
  	
