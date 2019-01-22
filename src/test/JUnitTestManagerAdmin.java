@@ -7,14 +7,28 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import model.DAO.AdminDao;
+import model.DAO.StudenteDao;
 import model.DAO.implement.ManagerAdmin;
 import model.DAO.implement.ManagerAnnuncio;
 import model.DAO.implement.ManagerStudente;
 import model.PJO.Annuncio;
 import model.PJO.Studente;
 
+@ContextConfiguration(locations = "classpath:META-INF/datasource-testcontext.xml")
+@RunWith(SpringJUnit4ClassRunner.class)
 class JUnitTestManagerAdmin {
+	
+	@Autowired
+	private StudenteDao sdao;
+	
+	@Autowired
+	private AdminDao adao;
 	
 	@BeforeClass
 	  public static void initClass() {
@@ -37,10 +51,13 @@ class JUnitTestManagerAdmin {
 	  public void testGetAdmin() {
 	    System.out.println("Test getStudente");
 	    Studente s=new Studente("nome6","cognome6","preferenza6","email6","username6","password6",false,false,0);
-	    ManagerStudente.registrazione(s);
-	    ManagerAdmin.inserisciAdmin(s);
-	    assertEquals(s,ManagerAdmin.getAdmin("username6"));
+	    //ManagerStudente.registrazione(s);
+	    //ManagerAdmin.inserisciAdmin(s);
+	    sdao.add(s);
+	    adao.add(s);
+	    assertEquals(s.getUsername(),sdao.get("username6").getUsername());
 	  }
+	  /*
 	  @Test
 	  public void testInserisciAdmin() {
 	    System.out.println("Test Inserisci Admin");
@@ -76,6 +93,6 @@ class JUnitTestManagerAdmin {
 	    ManagerAnnuncio.inserisciAnnuncio(a);
 	    assertTrue(ManagerAdmin.eliminaAnnuncioAdmin(123));
 	  }
-
+*/
 
 }

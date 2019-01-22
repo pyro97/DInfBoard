@@ -13,7 +13,6 @@
 
 <div id="bachecaDiv">
 <%
-Studente s = (Studente) session.getAttribute("utente");
 
 ArrayList<Annuncio> bacheca = (ArrayList<Annuncio>) application.getAttribute("bacheca");
 
@@ -22,7 +21,7 @@ if(bacheca==null)
 else if(bacheca.size()==0) {
 	%> 
 	
-	<h1>La bacheca di DInfBoard è vuota. Clicca sul pulsante in alto per inserire un annuncio</h1>
+	La bacheca di DInfBoard è vuota. Clicca sul pulsante in alto per inserire un annuncio
 	
 	<%
 }
@@ -36,12 +35,7 @@ else {
 		%> <div class="class_annunci" style="width : <%=width%>%">
 				<%=bacheca.get(i).getTitolo() %><br> 
 				<img src="<%=bacheca.get(i).getPathImmagine()%>"> <br> 
-				<a href="annuncio.jsp?ID=<%=bacheca.get(i).getID()%>">Vai all'annuncio</a><br>
-				<%if(s!=null && s.isIsAdmin()){ %>
-				<a href="EliminaAnnuncioAdminServlet?ID=<%=bacheca.get(i).getID()%>">Elimina annuncio</a>
-				
-				
-				<%} %>
+				<a href="annuncio.jsp?ID=<%=bacheca.get(i).getID()%>">Vai all'annuncio</a>
 			</div>
 			
 			<% }

@@ -9,7 +9,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Modifica Profilo - DInfBoard</title>
-	<link rel="stylesheet" href="css/profiloUser.css">
+	<link rel="stylesheet" href="css/modificaProfilo.css">
 </head>
 <body>
 

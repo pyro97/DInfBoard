@@ -24,16 +24,15 @@ public class EliminaAnnuncioAdminServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id= (int) request.getAttribute("idAnnuncio");
+		int id= Integer.parseInt(request.getParameter("ID"));
 		if(ManagerAdmin.eliminaAnnuncioAdmin(id)) {
-			
 			ServletContext ctx = getServletContext();
 			ArrayList<Annuncio> bacheca = ManagerAnnuncio.ottieniBacheca();
 			if(bacheca==null)
 				response.sendRedirect("error.jsp");
 			else {
 				ctx.setAttribute("bacheca", bacheca);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("adminArea.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("bacheca.jsp");
 				dispatcher.forward(request, response);
 			}
 		}
