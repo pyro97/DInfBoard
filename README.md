@@ -1,4 +1,4 @@
-### Hi there 👋
+### PROJECT NOT FINISHED 👋
 
 <!--
 **DINFBoard/DInfBoard** is project made for our Software Engeneering course.
