@@ -6,6 +6,7 @@ Website that provides a section to publish and organize announcements and course
   <img src="readme/dinf1.png" width="500" height="250">
   <img src="readme/dinf2.png" width="500" height="250">
   <img src="readme/dinf3.png" width="500" height="250">
+  <img src="readme/dinf4.png" width="500" height="250">
 </p>
 
 #### It has following packages:
