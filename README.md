@@ -1,6 +1,20 @@
-### PROJECT NOT FINISHED AND POORLY TESTED
+# DInfBoard
+E-Commerce Website to sell glasses
 
-<!--
-**DINFBoard/DInfBoard** is project made for our Software Engeneering course.
-It isn't complete and the source code could not work on any platform; testing has been done poorly.
--->
+<br>
+<p align="center">
+  <img src="readme/dinf1.png" width="500" height="250">
+  <img src="readme/dinf2.png" width="500" height="250">
+  <img src="readme/dinf3.png" width="500" height="250">
+  <img src="readme/dinf4.png" width="500" height="250">
+</p>
+
+#### It has following packages:
+1. **Control**: It contains all servlet.
+2. **Web Content**: It contains jsp pages, css style, images and all scripts.
+3. **Model**: It contains Beans and Model to connect to the DB (using DataSource).
+
+<br>
+<p align="center">
+  <img src="readme/model2.jpeg" width="500">
+</p>
